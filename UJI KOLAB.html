@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toko HP Online</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1600') no-repeat center center fixed;
+      background-size: cover;
+      min-height: 100vh;
+      position: relative;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.8);
+      z-index: -1;
+    }
+    .container {
+      width: 90%;
+      margin: auto;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .brand-tabs {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+    .brand-buttons {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .cart-btn {
+      background: #2a9d8f;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      white-space: nowrap;
+    }
+    .cart-btn:hover {
+      background: #21867a;
+    }
+    .brand-btn {
+      background: #1d3557;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
+    .btn-desc {
+      background: #457b9d;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
+    .btn-cart {
+      background: #2a9d8f;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .brand-btn:hover, .brand-btn.active {
+      background: #457b9d;
+    }
+    h2 {
+      margin-top: 30px;
+      color: #1d3557;
+    }
+    .product-grid {
+      display: none;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .product-grid.active {
+      display: grid;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-align: center;
+      padding: 15px;
+    }
+    .product-card img {
+      width: auto;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    .product-info h3 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+      color: #222;
+    }
+    .product-price {
+      color: #e63946;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .btn-buy {
+      background: #1d3557;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn-buy:hover {
+      background: #457b9d;
+    }
+    .back-card-link {
+      text-decoration: none;
+      display: block;
+      text-align: center;
+      margin-top: 50px;
+      margin-bottom: 20px;
+    }
+    .back-card {
+      display: inline-block;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 10px 20px;
+      color: #1d3557;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .back-card:hover {
+      background: #f8f9fa;
+    }
+
+    /* Modal */
+    #checkoutModal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      width: 400px;
+      max-width: 90%;
+    }
+    .close-modal {
+      float: right;
+      cursor: pointer;
+      font-size: 20px;
+      color: #333;
+    }
+    /* Modal Receipt */
+    #receiptModal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    .receipt-modal-content {
+      background: linear-gradient(135deg, #e8f5e8, #ffffff);
+      padding: 30px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      animation: slideUp 0.5s ease-out;
+      position: relative;
+      color: black;
+    }
+    .close-receipt {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      cursor: pointer;
+      font-size: 24px;
+      color: black;
+      font-weight: bold;
+    }
+    /* Modal Deskripsi */
+    #descriptionModal {
+      display: none;
+      position: fixed;
+      z-index: 1500;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+    .close-desc {
+      float: right;
+      cursor: pointer;
+      font-size: 20px;
+      color: #333;
+    }
+    /* Modal Keranjang */
+    #cartModal {
+      display: none;
+      position: fixed;
+      z-index: 1600;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+    .cart-modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 600px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    .close-cart {
+      float: right;
+      cursor: pointer;
+      font-size: 20px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .cart-item-info {
+      flex: 1;
+    }
+    .cart-item-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .quantity-btn {
+      background: #ddd;
+      border: none;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cart-total {
+      font-size: 18px;
+      font-weight: bold;
+      text-align: right;
+      margin: 20px 0;
+      padding: 10px;
+      background: #f9f9f9;
+      border-radius: 5px;
+    }
+    .cart-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .btn-clear {
+      background: #e63946;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .close-receipt:hover {
+      color: #666;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .receipt-card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 10px 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border: 1px solid #ddd;
+    }
+    .receipt-card h4 {
+      margin: 0 0 15px 0;
+      font-size: 24px;
+    }
+    .receipt-card p {
+      margin: 8px 0;
+      font-size: 16px;
+    }
+    .receipt-card small {
+      display: block;
+      margin-top: 10px;
+      opacity: 0.8;
+    }
+    .receipt-card {
+      background: #fff;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .history-summary {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      background: #f1f1f1;
+    }
+    .history-summary p {
+      margin: 0;
+      font-weight: bold;
+      font-size: 14px;
+    }
+    .history-summary button {
+      font-size: 13px;
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+    .history-detail {
+      display: none;
+      margin-top: 10px;
+      padding: 10px;
+      background: #fafafa;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+    }
+    .history-detail p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="landing page.html" class="back-card-link">
+      <div class="back-card">
+        ← Kembali ke Landing Page
+      </div>
+    </a>
+    <h1>📱 Toko HP Online</h1>
+
+    <!-- Brand Tabs -->
+    <div class="brand-tabs">
+      <div class="brand-buttons">
+        <button class="brand-btn active" onclick="showBrand('iphone')">🍎 iPhone</button>
+        <button class="brand-btn" onclick="showBrand('samsung')">📱 Samsung</button>
+        <button class="brand-btn" onclick="showBrand('google')">🔍 Google</button>
+        <button class="brand-btn" onclick="showBrand('xiaomi')">🔥 Xiaomi</button>
+      </div>
+      <button class="cart-btn" onclick="openCart()">🛒 Keranjang (<span id="cartCount">0</span>)</button>
+    </div>
+
+    <!-- iPhone -->
+    <h2>🍎 iPhone</h2>
+    <div id="iphoneGrid" class="product-grid active"></div>
+
+    <!-- Samsung -->
+    <h2>📱 Samsung</h2>
+    <div id="samsungGrid" class="product-grid"></div>
+
+    <!-- Google -->
+    <h2>🔍 Google</h2>
+    <div id="googleGrid" class="product-grid"></div>
+
+    <!-- Xiaomi -->
+    <h2>🔥 Xiaomi</h2>
+    <div id="xiaomiGrid" class="product-grid"></div>
+
+    <!-- Riwayat Pembelian -->
+    <h2>📋 Riwayat Pembelian</h2>
+    <button id="historyToggleBtn" class="btn-buy" onclick="showPurchaseHistory()">Lihat Riwayat</button>
+    <div id="historySection" style="display: none; margin-top: 20px;">
+      <div id="purchaseHistory"></div>
+    </div>
+
+    <!-- Modal Checkout -->
+    <div id="checkoutModal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Checkout</h2>
+        <form id="orderForm">
+          <input type="text" id="selectedProduct" readonly style="width:100%;margin-bottom:10px"><br>
+          <input type="text" id="custName" placeholder="Nama Anda" required style="width:100%;margin-bottom:10px"><br>
+          <input type="text" id="custAddress" placeholder="Alamat" required style="width:100%;margin-bottom:10px"><br>
+          <input type="text" id="discountCode" placeholder="Kode Diskon (opsional)" style="width:100%;margin-bottom:10px"><br>
+          <select id="payMethod" required style="width:100%;margin-bottom:10px">
+            <option value="">Pilih Metode Pembayaran</option>
+            <option value="Transfer Bank">Transfer Bank</option>
+            <option value="E-Wallet">E-Wallet</option>
+            <option value="COD">COD</option>
+          </select><br>
+          <input type="text" id="payNumber" placeholder="Nomor Rekening / Akun" required style="width:100%;margin-bottom:10px"><br>
+          <button type="submit" class="btn-buy">Konfirmasi Pesanan</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Modal Receipt -->
+    <div id="receiptModal">
+      <div class="receipt-modal-content">
+        <span class="close-receipt">&times;</span>
+        <div id="receiptContent"></div>
+      </div>
+    </div>
+
+    <!-- Modal Deskripsi -->
+    <div id="descriptionModal">
+      <div class="modal-content">
+        <span class="close-desc">&times;</span>
+        <h2 id="descTitle"></h2>
+        <p id="descContent"></p>
+      </div>
+    </div>
+
+    <!-- Modal Keranjang -->
+    <div id="cartModal">
+      <div class="cart-modal-content">
+        <span class="close-cart">&times;</span>
+        <h2>🛒 Keranjang Belanja</h2>
+        <div id="cartItems"></div>
+        <div id="cartTotal" class="cart-total"></div>
+        <div class="cart-actions">
+          <button id="clearCartBtn" class="btn-clear">Kosongkan Keranjang</button>
+          <button id="checkoutCartBtn" class="btn-buy">Checkout Semua</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Back to Landing Page -->
+    <div class="back-card-link">
+      <a href="landing page.html" class="back-card">
+        <h3>🏠 Kembali ke Halaman Utama</h3>
+        <p>Klik di sini untuk kembali ke landing page</p>
+      </a>
+    </div>
+  </div>
+
+<script>
+// Data Produk
+const products = [
+  { id: 1, brand: "iPhone", name: "iPhone 13", price: "Rp 10.999.000", desc: "iPhone 13 dengan chip A15 Bionic, kamera ganda 12MP, dan layar Super Retina XDR 6.1 inci.", image: "https://m-cdn.phonearena.com/images/articles/392662-image/14-blue.jpg" },
+  { id: 2, brand: "iPhone", name: "iPhone 14 pro", price: "Rp 14.499.000", desc: "iPhone 14 Pro dengan Dynamic Island, kamera 48MP, dan ProMotion display.", image: "https://th.bing.com/th/id/OIP.USa__2efKAS9fOfQCl3FegHaHa?w=168&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
+  { id: 3, brand: "iPhone", name: "iPhone 15 Pro Max", price: "Rp 24.999.000", desc: "iPhone 15 Pro Max dengan Titanium design, kamera 48MP, dan Action Button.", image: "https://th.bing.com/th/id/OIP.Iw8pBCV3DP0O1qoum_Wj4AAAAA?w=139&h=150&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
+  { id: 3, brand: "Samsung", name: "Samsung Galaxy A55 5G", price: "Rp 6.999.000", desc: "Samsung Galaxy A55 5G dengan layar AMOLED 6.4 inci, kamera 50MP, dan Snapdragon 7 Gen 1.", image: "https://cdn-files.kimovil.com/default/0009/97/thumb_896032_default_big.jpg" },
+  { id: 4, brand: "Samsung", name: "Samsung Galaxy S24 Ultra", price: "Rp 21.499.000", desc: "Samsung Galaxy S24 Ultra dengan S Pen, kamera 200MP, dan layar 6.8 inci.", image: "https://cliktodeal.com/wp-content/uploads/2024/11/Samsung-galaxy-s24-ultra-black.jpg" },
+  { id: 5, brand: "Samsung", name: "Samsung Galaxy S25 Ultra", price: "Rp 28.999.000", desc: "Samsung Galaxy S25 Ultra dengan AI features, kamera 200MP, dan layar 6.9 inci.", image: "https://m.media-amazon.com/images/I/41IvgQ5K7IL._SL500_.jpg" },
+  { id: 6, brand: "Google", name: "Google Pixel 7 Pro", price: "Rp 9.300.000", desc: "Google Pixel 7 Pro dengan kamera computational photography, Tensor G2 chip, dan Android pure.", image: "data:image/webp;base64,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" },
+  { id: 6, brand: "Google", name: "Google Pixel 8 Pro", price: "Rp 15.800.000", desc: "Google Pixel 8 Pro dengan Magic Eraser, kamera 50MP, dan Tensor G3.", image: "https://s.isanook.com/hi/0/ud/317/1589987/pix8pro_3.jpg?ip/resize/w728/q80/jpg" },
+  { id: 7, brand: "Google", name: "Google Pixel 9 pro", price: "Rp 18.000.000", desc: "Google Pixel 9 Pro dengan AI enhancements, kamera 50MP, dan layar 6.3 inci.", image: "data:image/webp;base64,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" },
+  { id: 8, brand: "Xiaomi", name: "Xiaomi 14 Ultra", price: "Rp 18.000.000", image: "https://th.bing.com/th/id/OIP.d-Iiwv3A1aMMwMvktwvtSwHaHa?w=161&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3" },
+  { id: 9, brand: "Xiaomi", name: "Xiaomi 15", price: "Rp 15.999.000", image: "https://th.bing.com/th/id/OIP.Y6mBj3ItZvWW89gr4OafnwEsEs?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3" }
+];
+
+// Kode Diskon
+const discountCodes = {
+  "IPHONE20": { discount: 0.20, brand: "iPhone" },
+  "SAMSUNG15": { discount: 0.15, brand: "Samsung" },
+  "XIAOMI25": { discount: 0.15, brand: "Xiaomi" },
+  "GOOGLE18": { discount: 0.12, brand: "Google" },
+  "FLASH30": { discount: 0.10, brand: null }, // Berlaku untuk semua
+  "ALL10": { discount: 0.10, brand: null }, // Berlaku untuk semua
+  "250110": { discount: 0.25, brand: null } // Kode diskon baru, diskon 25% untuk semua brand
+};
+
+// Keranjang Belanja
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+// Elemen DOM
+const modal = document.getElementById('checkoutModal');
+const closeBtn = document.querySelector('.close-modal');
+const orderForm = document.getElementById('orderForm');
+const receiptModal = document.getElementById('receiptModal');
+const closeReceiptBtn = document.querySelector('.close-receipt');
+const receiptContent = document.getElementById('receiptContent');
+const historySection = document.getElementById('historySection');
+const purchaseHistory = document.getElementById('purchaseHistory');
+
+// Tampilkan Produk per Brand
+function displayProducts() {
+  const brands = ["iPhone", "Samsung", "Google", "Xiaomi"];
+  brands.forEach(brand => {
+    const grid = document.getElementById(brand.toLowerCase() + "Grid");
+    grid.innerHTML = products.filter(p => p.brand === brand).map(product => `
+      <div class="product-card">
+        <img src="${product.image}" alt="${product.name}">
+        <div class="product-info">
+          <h3>${product.name}</h3>
+          <p class="product-price">${product.price}</p>
+          <div class="button-group">
+            <button class="btn-cart" onclick="addToCart('${product.id}', '${product.name}', '${product.price}')">🛒 Tambah ke Keranjang</button>
+            <button class="btn-desc" onclick="openDescription('${product.name}', '${product.desc}')">ℹ️ Deskripsi</button>
+            <button class="btn-buy" onclick="openCheckout('${product.name}', '${product.price}')">💳 Beli Sekarang</button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  });
+}
+
+// Tampilkan Brand Tertentu
+function showBrand(brand) {
+  // Sembunyikan semua grid
+  const grids = document.querySelectorAll('.product-grid');
+  grids.forEach(grid => grid.classList.remove('active'));
+
+  // Tampilkan grid yang dipilih
+  const selectedGrid = document.getElementById(brand + 'Grid');
+  selectedGrid.classList.add('active');
+
+  // Update tombol aktif
+  const buttons = document.querySelectorAll('.brand-btn');
+  buttons.forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+// Buka Modal Deskripsi
+function openDescription(name, desc) {
+  document.getElementById('descTitle').textContent = name;
+  document.getElementById('descContent').textContent = desc;
+  document.getElementById('descriptionModal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+// Tambah ke Keranjang
+function addToCart(id, name, price) {
+  const existingItem = cart.find(item => item.id === id);
+  if (existingItem) {
+    existingItem.quantity += 1;
+  } else {
+    cart.push({ id, name, price, quantity: 1 });
+  }
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartCount();
+  alert(`${name} telah ditambahkan ke keranjang!`);
+}
+
+// Update jumlah item di keranjang
+function updateCartCount() {
+  const count = cart.reduce((total, item) => total + item.quantity, 0);
+  document.getElementById('cartCount').textContent = count;
+}
+
+// Buka Modal Keranjang
+function openCart() {
+  renderCart();
+  document.getElementById('cartModal').style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
+// Render isi keranjang
+function renderCart() {
+  const cartItems = document.getElementById('cartItems');
+  const cartTotal = document.getElementById('cartTotal');
+  
+  if (cart.length === 0) {
+    cartItems.innerHTML = '<p>Keranjang kosong</p>';
+    cartTotal.innerHTML = '';
+    return;
+  }
+  
+  cartItems.innerHTML = cart.map((item, index) => `
+    <div class="cart-item">
+      <div class="cart-item-info">
+        <h4>${item.name}</h4>
+        <p>Harga: ${item.price}</p>
+      </div>
+      <div class="cart-item-controls">
+        <div class="quantity-controls">
+          <button class="quantity-btn" onclick="updateQuantity(${index}, -1)">-</button>
+          <span>${item.quantity}</span>
+          <button class="quantity-btn" onclick="updateQuantity(${index}, 1)">+</button>
+        </div>
+        <button class="btn-clear" onclick="removeFromCart(${index})">Hapus</button>
+      </div>
+    </div>
+  `).join('');
+  
+  const total = cart.reduce((sum, item) => {
+    const price = parseInt(item.price.replace('Rp ', '').replace(/\./g, ''));
+    return sum + (price * item.quantity);
+  }, 0);
+  
+  cartTotal.innerHTML = `<p>Total: Rp ${total.toLocaleString('id-ID')}</p>`;
+}
+
+// Update quantity item
+function updateQuantity(index, change) {
+  cart[index].quantity += change;
+  if (cart[index].quantity <= 0) {
+    cart.splice(index, 1);
+  }
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartCount();
+  renderCart();
+}
+
+// Hapus item dari keranjang
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartCount();
+  renderCart();
+}
+
+// Kosongkan keranjang
+function clearCart() {
+  cart = [];
+  localStorage.setItem('cart', JSON.stringify(cart));
+  updateCartCount();
+  renderCart();
+}
+
+// Checkout dari keranjang
+function checkoutCart() {
+  if (cart.length === 0) {
+    alert('Keranjang kosong!');
+    return;
+  }
+  
+  const total = cart.reduce((sum, item) => {
+    const price = parseInt(item.price.replace('Rp ', '').replace(/\./g, ''));
+    return sum + (price * item.quantity);
+  }, 0);
+  
+  const productList = cart.map(item => `${item.name} (${item.quantity}x)`).join(', ');
+  
+  document.getElementById('selectedProduct').value = `${productList} - Total: Rp ${total.toLocaleString('id-ID')}`;
+  document.getElementById('cartModal').style.display = 'none';
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  modal.dataset.productPrice = total.toString();
+  modal.dataset.productBrand = 'Multiple'; // Since it's from cart
+}
+
+// Buka Modal
+function openCheckout(name, price) {
+  document.getElementById('selectedProduct').value = `${name} (${price})`;
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  // Simpan harga dan brand untuk perhitungan total
+  modal.dataset.productPrice = price.replace('Rp ', '').replace(/\./g, '');
+  const product = products.find(p => p.name === name);
+  modal.dataset.productBrand = product ? product.brand : '';
+}
+
+// Tutup Modal
+closeBtn.onclick = () => {
+  modal.style.display = 'none';
+  document.body.style.overflow = 'auto';
+};
+
+closeReceiptBtn.onclick = closeReceiptModal;
+
+const closeDescBtn = document.querySelector('.close-desc');
+closeDescBtn.onclick = () => {
+  document.getElementById('descriptionModal').style.display = 'none';
+  document.body.style.overflow = 'auto';
+};
+
+const closeCartBtn = document.querySelector('.close-cart');
+closeCartBtn.onclick = () => {
+  document.getElementById('cartModal').style.display = 'none';
+  document.body.style.overflow = 'auto';
+};
+
+const clearCartBtn = document.getElementById('clearCartBtn');
+clearCartBtn.onclick = clearCart;
+
+const checkoutCartBtn = document.getElementById('checkoutCartBtn');
+checkoutCartBtn.onclick = checkoutCart;
+
+window.onclick = (event) => {
+  if (event.target == modal) {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+  if (event.target == receiptModal) {
+    closeReceiptModal();
+  }
+  if (event.target == document.getElementById('descriptionModal')) {
+    document.getElementById('descriptionModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+  if (event.target == document.getElementById('cartModal')) {
+    document.getElementById('cartModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+};
+
+// Submit Pesanan
+orderForm.onsubmit = (e) => {
+  e.preventDefault();
+  const productPrice = parseInt(modal.dataset.productPrice) || 0;
+  const productBrand = modal.dataset.productBrand || '';
+  const discountCode = document.getElementById('discountCode').value.toUpperCase();
+  let discountPercent = 0;
+  let discountAmount = 0;
+
+  // Validasi kode diskon
+  if (discountCode && discountCodes[discountCode]) {
+    const discountInfo = discountCodes[discountCode];
+    if (discountInfo.brand === null || discountInfo.brand === productBrand) {
+      discountPercent = discountInfo.discount;
+      discountAmount = Math.round(productPrice * discountPercent);
+    } else {
+      alert('Kode diskon tidak berlaku untuk brand ini.');
+      return;
+    }
+  }
+
+  const shippingCost = 50000; // Biaya pengiriman tetap
+  const subtotal = productPrice - discountAmount;
+  const total = subtotal + shippingCost;
+
+  const orderData = {
+    id: 'TRX-' + Math.floor(Math.random() * 1000000),
+    date: new Date().toLocaleString(),
+    product: document.getElementById('selectedProduct').value,
+    name: document.getElementById('custName').value,
+    address: document.getElementById('custAddress').value,
+    payment: document.getElementById('payMethod').value,
+    account: document.getElementById('payNumber').value,
+    discountCode: discountCode || 'Tidak ada',
+    discountAmount: discountAmount > 0 ? 'Rp ' + discountAmount.toLocaleString('id-ID') : 'Rp 0',
+    shipping: 'Rp ' + shippingCost.toLocaleString('id-ID'),
+    total: 'Rp ' + total.toLocaleString('id-ID')
+  };
+  addReceipt(orderData);
+  savePurchaseHistory(orderData);
+  orderForm.reset();
+  modal.style.display = 'none';
+  document.body.style.overflow = 'auto';
+};
+
+// Tambah Riwayat Transaksi
+function addReceipt(data) {
+  const receiptHTML = `
+    <div class="receipt-card">
+      <h4>✅ Transaksi Berhasil!</h4>
+      <small>ID: ${data.id} | ${data.date}</small>
+      <p><b>Customer:</b> ${data.name}</p>
+      <p><b>Produk:</b> ${data.product}</p>
+      <p><b>Alamat:</b> ${data.address}</p>
+      <p><b>Pembayaran:</b> ${data.payment} (${data.account})</p>
+      <p><b>Kode Diskon:</b> ${data.discountCode}</p>
+      <p><b>Diskon:</b> ${data.discountAmount}</p>
+      <p><b>Ongkir:</b> ${data.shipping}</p>
+      <p><b>Total:</b> ${data.total}</p>
+    </div>
+  `;
+  receiptContent.innerHTML = receiptHTML;
+  receiptModal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+
+  // Auto close after 5 seconds
+  setTimeout(() => {
+    closeReceiptModal();
+  }, 5000);
+}
+
+// Tutup receipt modal
+function closeReceiptModal() {
+  receiptModal.style.display = 'none';
+  document.body.style.overflow = 'auto';
+}
+
+// Simpan Riwayat Pembelian
+function savePurchaseHistory(orderData) {
+  let history = JSON.parse(localStorage.getItem('purchaseHistory')) || [];
+  history.push(orderData);
+  localStorage.setItem('purchaseHistory', JSON.stringify(history));
+}
+
+// Tampilkan Riwayat Pembelian
+function showPurchaseHistory() {
+  const history = JSON.parse(localStorage.getItem('purchaseHistory')) || [];
+  const isVisible = historySection.style.display !== 'none';
+
+  if (!isVisible) {
+    if (history.length === 0) {
+      purchaseHistory.innerHTML = '<p>Belum ada riwayat pembelian.</p>';
+    } else {
+      purchaseHistory.innerHTML = history.map((item, index) => `
+        <div class="receipt-card" style="margin-bottom: 10px;">
+          <div class="history-summary">
+            <p>Pembelian ${index + 1}</p>
+            <button class="btn-buy" onclick="toggleHistoryDetail(${index})">Lihat Detail</button>
+          </div>
+          <div id="detail-${index}" class="history-detail">
+            <p><b>ID:</b> ${item.id}</p>
+            <p><b>Tanggal:</b> ${item.date}</p>
+            <p><b>Produk:</b> ${item.product}</p>
+            <p><b>Nama:</b> ${item.name}</p>
+            <p><b>Alamat:</b> ${item.address}</p>
+            <p><b>Pembayaran:</b> ${item.payment} (${item.account})</p>
+            <p><b>Kode Diskon:</b> ${item.discountCode}</p>
+            <p><b>Diskon:</b> ${item.discountAmount}</p>
+            <p><b>Ongkir:</b> ${item.shipping}</p>
+            <p><b>Total:</b> ${item.total}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+    historySection.style.display = 'block';
+    document.getElementById('historyToggleBtn').textContent = 'Tutup Riwayat';
+  } else {
+    historySection.style.display = 'none';
+    document.getElementById('historyToggleBtn').textContent = 'Lihat Riwayat';
+  }
+}
+
+function toggleHistoryDetail(index) {
+  const detail = document.getElementById(`detail-${index}`);
+  const button = detail ? detail.previousElementSibling.querySelector('button') : null;
+  if (!detail) return;
+
+  const isOpen = detail.style.display === 'block';
+  detail.style.display = isOpen ? 'none' : 'block';
+  if (button) {
+    button.textContent = isOpen ? 'Lihat Detail' : 'Sembunyikan Detail';
+  }
+}
+
+// Jalankan
+displayProducts();
+updateCartCount();
+</script>
+</script>
+</body>
+</html>
