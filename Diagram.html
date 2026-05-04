@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diagram Penjualan</title>
+  <style>
+        :root {
+      --bg: #eef2ff;
+      --surface: #f9fbff;
+      --text: #1f2937;
+      --muted: #64748b;
+      --primary: #1d3557;
+      --secondary: #457b9d;
+      --accent: #e63946;
+      --border: rgba(255, 255, 255, 0.7);
+      --shadow: rgba(15, 23, 42, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(circle at top, rgba(69, 123, 157, 0.12), transparent 40%), #eef2ff;
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      padding: 16px 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .nav h1 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: #fff;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      padding: 10px 14px;
+      border-radius: 999px;
+      transition: background 0.25s ease, color 0.25s ease;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    main {
+      padding: 32px 24px 48px;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      display: grid;
+      gap: 24px;
+      margin-bottom: 28px;
+      padding: 32px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,0.82));
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 25px 70px rgba(29, 53, 87, 0.12);
+      backdrop-filter: blur(12px);
+    }
+
+    .hero .summary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hero .summary strong {
+      display: block;
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--primary);
+    }
+
+    .hero .summary p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .hero .summary button {
+      border: none;
+      border-radius: 999px;
+      padding: 14px 24px;
+      background: var(--accent);
+      color: #fff;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .hero .summary button:hover {
+      background: #d45e36;
+      transform: translateY(-1px);
+    }
+
+    .hero p.description {
+      margin: 0;
+      color: var(--text);
+      max-width: 720px;
+      line-height: 1.7;
+    }
+
+    .chart-card,
+    .table-card {
+      border-radius: 28px;
+      padding: 28px;
+      margin-bottom: 28px;
+      background: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 25px 70px rgba(29, 53, 87, 0.08);
+    }
+
+    .chart-card h2,
+    .table-card h2 {
+      margin-top: 0;
+      color: var(--primary);
+      font-size: 1.45rem;
+    }
+
+    canvas {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 26px;
+      background: linear-gradient(180deg, #f8fbff 0%, #e7efff 100%);
+      box-shadow: inset 0 0 0 1px rgba(29, 53, 87, 0.04);
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 18px;
+      min-width: 480px;
+      background: #fff;
+    }
+
+    th,
+    td {
+      padding: 16px 14px;
+      border-bottom: 1px solid rgba(29, 53, 87, 0.08);
+      text-align: left;
+    }
+
+    th {
+      color: #475569;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 0.85rem;
+    }
+
+    td {
+      color: #334155;
+    }
+
+    td strong {
+      color: var(--text);
+    }
+
+    .empty-state {
+      padding: 18px 0;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    @media (max-width: 720px) {
+      main {
+        padding: 20px 16px 32px;
+      }
+
+      .hero {
+        padding: 24px;
+      }
+
+      .hero .summary {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav h1 {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <h1>Diagram Penjualan</h1>
+      <div class="nav-links">
+        <a href="landing page.html">Home</a>
+        <a href="UJI KOLAB.html">Produk</a>
+        <a href="Diagram.html" class="active">Diagram</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero card">
+      <div class="summary">
+        <div>
+          <p>Total Penjualan Semua Barang</p>
+          <strong id="totalSold">0</strong>
+        </div>
+        <button id="refreshButton" type="button">Segarkan Diagram</button>
+      </div>
+      <p class="description">
+        Halaman ini menampilkan total penjualan barang berdasarkan data penjualan yang tersimpan di peramban.
+      </p>
+    </section>
+
+    <section class="chart-card">
+      <h2>Grafik Penjualan Produk</h2>
+      <canvas id="salesChart" width="900" height="420"></canvas>
+    </section>
+
+    <section class="table-card">
+      <h2>Rincian Penjualan</h2>
+      <div id="emptyState" class="empty-state" hidden>Tidak ada penjualan yang tercatat saat ini.</div>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Produk</th>
+              <th>Terjual</th>
+            </tr>
+          </thead>
+          <tbody id="salesTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const productNames = {
+      1: "iPhone 13",
+      2: "iPhone 14 pro",
+      3: "iPhone 15 Pro Max",
+      4: "Samsung Galaxy A55 5G",
+      5: "Samsung Galaxy S24 Ultra",
+      6: "Samsung Galaxy S25 Ultra",
+      7: "Google Pixel 7 Pro",
+      8: "Google Pixel 8 Pro",
+      9: "Google Pixel 9 pro"
+    };
+
+    function getSoldCounts() {
+      return JSON.parse(localStorage.getItem('soldCounts') || '{}');
+    }
+
+    function buildProductRows(soldCounts) {
+      const ids = Object.keys(soldCounts)
+        .map(id => Number(id))
+        .sort((a, b) => a - b);
+
+      const rows = ids.map(id => ({
+        id,
+        name: productNames[id] || `Produk ${id}`,
+        sold: parseInt(soldCounts[id], 10) || 0
+      }));
+
+      if (rows.length === 0) {
+        return [];
+      }
+
+      return rows;
+    }
+
+    function renderSalesTable(rows) {
+      const body = document.getElementById('salesTableBody');
+      const emptyState = document.getElementById('emptyState');
+      body.innerHTML = '';
+
+      if (rows.length === 0) {
+        emptyState.hidden = false;
+        return;
+      }
+
+      emptyState.hidden = true;
+      rows.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${row.id}</td>
+          <td><strong>${row.name}</strong></td>
+          <td>${row.sold}</td>
+        `;
+        body.appendChild(tr);
+      });
+    }
+
+    function drawSalesChart() {
+      const canvas = document.getElementById('salesChart');
+      const ctx = canvas.getContext('2d');
+      const soldCounts = getSoldCounts();
+      const allIds = Array.from(new Set([
+        ...Object.keys(productNames).map(Number),
+        ...Object.keys(soldCounts).map(Number)
+      ])).sort((a, b) => a - b);
+
+      const labels = allIds.map(id => productNames[id] || `Produk ${id}`);
+      const values = allIds.map(id => parseInt(soldCounts[id], 10) || 0);
+      const totalSold = values.reduce((sum, value) => sum + value, 0);
+
+      document.getElementById('totalSold').textContent = totalSold;
+
+      const width = canvas.width;
+      const height = canvas.height;
+      ctx.clearRect(0, 0, width, height);
+
+      if (allIds.length === 0) {
+        ctx.fillStyle = '#333';
+        ctx.font = '18px Arial';
+        ctx.fillText('Belum ada penjualan tercatat.', width / 2, height / 2);
+        return;
+      }
+
+      const padding = 60;
+      const chartWidth = width - padding * 2;
+      const chartHeight = height - padding * 2;
+      const barWidth = Math.max(32, Math.min(64, chartWidth / allIds.length - 16));
+      const maxValue = Math.max(...values, 1);
+      const scale = chartHeight / maxValue;
+
+      // background grid
+      ctx.strokeStyle = '#dde3ef';
+      ctx.lineWidth = 1;
+      ctx.beginPath();
+      for (let i = 0; i <= 5; i += 1) {
+        const y = padding + (chartHeight / 5) * i;
+        ctx.moveTo(padding, y);
+        ctx.lineTo(width - padding, y);
+      }
+      ctx.stroke();
+
+      ctx.fillStyle = '#222';
+      ctx.font = '600 16px Inter, Arial';
+      ctx.fillText('Diagram Penjualan per Produk', padding, padding - 24);
+
+      // draw bars
+      values.forEach((value, index) => {
+        const x = padding + index * (barWidth + 16);
+        const barHeight = value * scale;
+        const y = padding + chartHeight - barHeight;
+
+        ctx.fillStyle = '#4caf50';
+        ctx.fillRect(x, y, barWidth, barHeight);
+
+        ctx.fillStyle = '#111';
+        ctx.font = '600 14px Inter, Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText(value, x + barWidth / 2, y - 10);
+
+        // product label
+        ctx.save();
+        ctx.translate(x + barWidth / 2, padding + chartHeight + 22);
+        ctx.rotate(-Math.PI / 5);
+        ctx.fillStyle = '#555';
+        ctx.font = '13px Inter, Arial';
+        ctx.fillText(labels[index], 0, 0);
+        ctx.restore();
+      });
+
+      // y-axis labels
+      ctx.fillStyle = '#333';
+      ctx.font = '13px Inter, Arial';
+      ctx.textAlign = 'right';
+      for (let i = 0; i <= 5; i += 1) {
+        const value = Math.round(maxValue * (5 - i) / 5);
+        const y = padding + (chartHeight / 5) * i + 4;
+        ctx.fillText(value, padding - 12, y);
+      }
+
+      // axis lines
+      ctx.strokeStyle = '#333';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(padding, padding);
+      ctx.lineTo(padding, padding + chartHeight);
+      ctx.lineTo(width - padding + 8, padding + chartHeight);
+      ctx.stroke();
+    }
+
+    function initDiagramPage() {
+      const soldCounts = getSoldCounts();
+      const rows = buildProductRows(soldCounts);
+      renderSalesTable(rows);
+      drawSalesChart();
+    }
+
+    document.getElementById('refreshButton').addEventListener('click', initDiagramPage);
+    window.addEventListener('load', initDiagramPage);
+  </script>
+</body>
+</html>

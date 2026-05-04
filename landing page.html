@@ -9,6 +9,86 @@
       margin: 0;
       font-family: Arial, sans-serif;
     }
+    /* Navbar */
+    .navbar {
+      background: linear-gradient(135deg, #1d3557, #457b9d);
+      padding: 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar-container {
+      width: 90%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10px;
+    }
+    .navbar-brand {
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 0;
+    }
+    .navbar-brand .brand-icon {
+      font-size: 28px;
+    }
+    .navbar-menu {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .navbar-stats {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-left: 20px;
+      padding: 10px 15px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      color: #f1faee;
+      font-size: 14px;
+    }
+    .navbar-stats .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+    .navbar-stats .stat-value {
+      font-weight: 700;
+      color: #ffd166;
+    }
+    .nav-link {
+      color: #e0e0e0;
+      text-decoration: none;
+      padding: 20px 18px;
+      font-size: 15px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 3px solid transparent;
+    }
+    .nav-link:hover {
+      color: #fff;
+      background: rgba(255,255,255,0.1);
+    }
+    .nav-link.active {
+      color: #fff;
+      border-bottom-color: #f1faee;
+      background: rgba(255,255,255,0.1);
+    }
+    .nav-link .nav-icon {
+      font-size: 16px;
+    }
     .hero {
       height: 100vh;
       background: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=1600') no-repeat center center/cover;
@@ -19,6 +99,7 @@
       color: white;
       text-align: center;
       position: relative;
+      overflow: hidden;
     }
     .hero::before {
       content: '';
@@ -38,17 +119,20 @@
       font-size: 48px;
       margin-bottom: 20px;
       text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+      animation: fadeInUp 1s ease-out;
     }
     .hero p {
       font-size: 20px;
       margin-bottom: 30px;
       text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+      animation: fadeInUp 1s ease-out 0.3s both;
     }
     .btn-group {
       display: flex;
       gap: 15px;
       flex-wrap: wrap;
       justify-content: center;
+      animation: fadeInUp 1s ease-out 0.6s both;
     }
     .btn {
       background: #e63946;
@@ -77,6 +161,243 @@
       background: #1b7a6f;
     }
 
+    /* Animated Phone Slider Section */
+    .phone-slider-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .phone-slider-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+      opacity: 0.3;
+    }
+    .slider-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      padding: 40px 0;
+    }
+    .slider-track {
+      display: flex;
+      animation: slideLeft 30s linear infinite;
+    }
+    .slider-track:hover {
+      animation-play-state: paused;
+    }
+    .phone-item {
+      flex: 0 0 auto;
+      margin: 0 20px;
+      perspective: 1000px;
+    }
+    .phone-card {
+      width: 280px;
+      height: 500px;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.6s ease;
+    }
+    .phone-card:hover {
+      transform: rotateY(10deg) rotateX(5deg);
+    }
+    .phone-mockup {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(145deg, #f0f0f0, #c0c0c0);
+      border-radius: 40px;
+      padding: 20px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+    .phone-mockup::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 30px;
+      background: #000;
+      border-radius: 40px 40px 0 0;
+    }
+    .phone-screen {
+      width: 100%;
+      height: 85%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 25px;
+      margin-top: 25px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .phone-screen::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+      transform: rotate(45deg);
+      animation: shine 3s infinite;
+    }
+    .phone-notch {
+      width: 120px;
+      height: 20px;
+      background: #000;
+      border-radius: 0 0 20px 20px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
+    }
+    .brand-logo {
+      font-size: 24px;
+      color: white;
+      margin-bottom: 20px;
+      z-index: 2;
+    }
+    .phone-features {
+      text-align: center;
+      z-index: 2;
+    }
+    .phone-features span {
+      display: block;
+      background: rgba(255,255,255,0.2);
+      padding: 8px 15px;
+      border-radius: 20px;
+      color: white;
+      font-size: 12px;
+      margin: 5px 0;
+      backdrop-filter: blur(10px);
+    }
+    .phone-price {
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      z-index: 2;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .phone-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: pulse 4s ease-in-out infinite;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes slideLeft {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+    @keyframes shine {
+      0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+      }
+      100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+      }
+    }
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 0.3;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      50% {
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+    }
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+    @keyframes rotate {
+      from {
+        transform: rotateY(0deg);
+      }
+      to {
+        transform: rotateY(360deg);
+      }
+    }
+    .float-animation {
+      animation: float 6s ease-in-out infinite;
+    }
+    .float-animation-delay-1 {
+      animation-delay: 1s;
+    }
+    .float-animation-delay-2 {
+      animation-delay: 2s;
+    }
+    .float-animation-delay-3 {
+      animation-delay: 3s;
+    }
+    .rotate-animation {
+      animation: rotate 8s linear infinite;
+      transform-style: preserve-3d;
+    }
+    .phone-rotator {
+      display: flex;
+      justify-content: center;
+      padding: 60px 20px;
+      gap: 30px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .phone-rotator .section-title {
+      color: #fff;
+      text-align: center;
+      max-width: 500px;
+      font-size: 32px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .phone-screen-image {
+      width: 90%;
+      height: 70%;
+      background-size: cover;
+      background-position: center;
+      border-radius: 15px;
+      margin-top: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
     /* Section Diskon */
     .discount-section {
       padding: 50px 0;
@@ -89,19 +410,43 @@
       font-size: 36px;
     }
     .discount-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
       gap: 20px;
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+    }
+    .discount-grid::-webkit-scrollbar {
+      height: 8px;
+    }
+    .discount-grid::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+    .discount-grid::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 4px;
+    }
+    .discount-grid::-webkit-scrollbar-thumb:hover {
+      background: #555;
     }
     .discount-card {
+      flex: 0 0 auto;
+      min-width: 280px;
       background: white;
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .discount-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
     }
     .discount-card h3 {
       color: #e63946;
@@ -125,7 +470,6 @@
     }
     .modal-card {
       background: white;
-      color: #333;
       padding: 20px;
       border-radius: 10px;
       max-width: 400px;
@@ -150,31 +494,78 @@
     .close-btn:hover {
       background: #d62828;
     }
+    .footer {
+      background: #1d3557;
+      color: #f1faee;
+      padding: 30px 0;
+      text-align: center;
+    }
+    .footer .footer-container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+    .footer p,
+    .footer a {
+      margin: 0;
+      color: #f1faee;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .footer .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .footer .footer-links a:hover {
+      color: #a8dadc;
+    }
   </style>
-</head>
-<body>
-  <!-- Tampilan Awal -->
-  <section class="hero">
-    <h1>Selamat Datang di Riski Phone Store</h1>
-    <p>Temukan smartphone terbaru dengan harga terbaik</p>
-    <div class="btn-group">
-      <a href="UJI KOLAB.html" class="btn">Mulai Belanja</a>
-      <button class="btn btn-info" onclick="scrollToPromo()">Lihat Promo</button>
-      <button class="btn btn-contact" onclick="openContact()">Hubungi Kami</button>
-    </div>
-  </section>
-
-  <!-- Modal Promo -->
-  <div class="modal" id="promoModal">
-    <div class="modal-card">
-      <h2>Promo Spesial April</h2>
-      <p>Diskon hingga <strong>30%</strong> untuk semua smartphone terbaru!</p>
-      <p>Gratis ongkir ke seluruh Indonesia.</p>
-      <button class="close-btn" onclick="closePromo()">Tutup</button>
-    </div>
-  </div>
-
-  <!-- Modal Kontak -->
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-container">
+        <a href="#" class="navbar-brand">
+          <span class="brand-icon">📱</span>
+          <span>Riski Phone</span>
+        </a>
+        <div class="navbar-menu">
+         <a href="#" class="nav-link active" onclick="navigateTo('home', this)">
+             <span class="nav-icon">🏠</span>
+             Home
+           </a>
+           <a href="UJI KOLAB.html" class="nav-link" onclick="navigateTo('produk', this)">
+             <span class="nav-icon">📦</span>
+             Produk
+           </a>
+           <a href="Diagram.html" class="nav-link" onclick="navigateTo('diagram', this)">
+             <span class="nav-icon">📊</span>
+             Diagram
+           </a>
+           <a href="#" class="nav-link" onclick="navigateTo('kontak', this)">
+             <span class="nav-icon">📞</span>
+             Telepon
+           </a>
+          <div class="navbar-stats">
+            <div class="stat-item">
+              <span>Pengunjung</span>
+              <span class="stat-value" id="visitorCount">12.345</span>
+            </div>
+            <div class="stat-item">
+              <span>Total Terjual</span>
+              <span class="stat-value">1.234+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Modal Kontak -->
   <div class="modal" id="contactModal">
     <div class="modal-card">
       <h2>Hubungi Kami</h2>
@@ -185,21 +576,32 @@
     </div>
   </div>
 
+    <!-- Tampilan Awal -->
+    <section class="hero">
+    <h1>Selamat Datang di Riski Phone Store</h1>
+    <p>Temukan smartphone terbaru dengan harga terbaik</p>
+    <div class="btn-group">
+      <a href="UJI KOLAB.html" class="btn">Mulai Belanja</a>
+      <button class="btn btn-info" onclick="scrollToPromo()">Lihat Promo</button>
+      <button class="btn btn-contact" onclick="openContact()">Hubungi Kami</button>
+    </div>
+  </section>
+
   <!-- Section Diskon -->
   <section class="discount-section" id="promoSection">
     <div class="container">
       <h2>🎉 Diskon Spesial</h2>
       <div class="discount-grid">
         <div class="discount-card">
-          <h3>Diskon 20% iPhone</h3>
-          <p>Dapatkan diskon hingga 20% untuk semua model iPhone terbaru!</p>
-          <p><strong>Kode Diskon: IPHONE20</strong></p>
+          <h3>Diskon 10% iPhone</h3>
+          <p>Dapatkan diskon hingga 10% untuk semua model iPhone terbaru!</p>
+          <p><strong>Kode Diskon: IPHONE10</strong></p>
           <button class="btn" onclick="openPromo('iPhone')">Lihat Detail</button>
         </div>
         <div class="discount-card">
-          <h3>Diskon 15% Samsung</h3>
-          <p>Penawaran spesial untuk Galaxy series dengan diskon hingga 15%.</p>
-          <p><strong>Kode Diskon: SAMSUNG15</strong></p>
+          <h3>Diskon 10% Samsung</h3>
+          <p>Penawaran spesial untuk Galaxy series dengan diskon hingga 10%.</p>
+          <p><strong>Kode Diskon: SAMSUNG10</strong></p>
           <button class="btn" onclick="openPromo('Samsung')">Lihat Detail</button>
         </div>
         <div class="discount-card">
@@ -209,57 +611,124 @@
           <button class="btn" onclick="openPromo('Semua')">Lihat Detail</button>
         </div>
         <div class="discount-card">
-          <h3>Diskon 25% Xiaomi</h3>
-          <p>Promo eksklusif Xiaomi dengan diskon hingga 25% untuk model terbaru!</p>
-          <p><strong>Kode Diskon: XIAOMI25</strong></p>
+          <h3>Diskon 10% Xiaomi</h3>
+          <p>Promo eksklusif Xiaomi dengan diskon hingga 10% untuk model terbaru!</p>
+          <p><strong>Kode Diskon: XIAOMI10</strong></p>
           <button class="btn" onclick="openPromo('Xiaomi')">Lihat Detail</button>
         </div>
         <div class="discount-card">
-          <h3>Diskon 18% Google Pixel</h3>
-          <p>Diskon spesial 18% untuk seri Google Pixel. Jangan lewatkan!</p>
-          <p><strong>Kode Diskon: GOOGLE18</strong></p>
+          <h3>Diskon 10% Google Pixel</h3>
+          <p>Diskon spesial 10% untuk seri Google Pixel. Jangan lewatkan!</p>
+          <p><strong>Kode Diskon: GOOGLE10</strong></p>
           <button class="btn" onclick="openPromo('Google')">Lihat Detail</button>
         </div>
         <div class="discount-card">
-          <h3>Diskon 30% Flash Sale</h3>
-          <p>Flash sale mingguan dengan diskon hingga 30% untuk produk pilihan!</p>
-          <p><strong>Kode Diskon: FLASH30</strong></p>
+          <h3>Diskon 10% Flash Sale</h3>
+          <p>Flash sale mingguan dengan diskon hingga 10% untuk produk pilihan!</p>
+          <p><strong>Kode Diskon: FLASH10</strong></p>
           <button class="btn" onclick="openPromo('Flash')">Lihat Detail</button>
         </div>
       </div>
     </div>
   </section>
 
+    <footer class="footer">
+      <div class="footer-container">
+        <p><strong>Riski Phone Store</strong> - Solusi pilihan untuk smartphone dan aksesoris berkualitas.</p>
+         <div class="footer-links">
+         <a href="#" onclick="navigateTo('home', this)">Home</a>
+           <a href="UJI KOLAB.html" onclick="navigateTo('produk', this)">Produk</a>
+           <a href="#" onclick="openContact(); return false;">Kontak</a>
+         </div>
+        <p>© 2026 Riski Phone Store. Semua hak dilindungi.</p>
+      </div>
+    </footer>
+
   <script>
+    function navigateTo(page, element) {
+      // Update active nav link
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+      });
+      element.classList.add('active');
+
+      // Handle navigation
+      if (page === 'diagram') {
+        window.location.href = 'Diagram.html';
+        return;
+      }
+      if (page === 'kontak') {
+        openContact();
+      }
+    }
+
     function scrollToPromo() {
       document.getElementById('promoSection').scrollIntoView({ behavior: 'smooth' });
     }
+
+    function formatNumber(value) {
+      return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    }
+
+    function getTotalSold() {
+      try {
+        const soldCounts = JSON.parse(localStorage.getItem('soldCounts') || '{}');
+        return Object.values(soldCounts).reduce((sum, count) => sum + (parseInt(count) || 0), 0);
+      } catch (e) {
+        return 0;
+      }
+    }
+
+    function updateStats() {
+      const visitorStat = document.getElementById('visitorCount');
+      const soldStat = document.querySelector('.navbar-stats .stat-item:nth-child(2) .stat-value');
+
+      // Increment visitors +1 every page load
+      let visitorCount = parseInt(localStorage.getItem('visitorCount') || '12345', 10);
+      visitorCount += 1;
+      localStorage.setItem('visitorCount', visitorCount);
+      visitorStat.textContent = formatNumber(visitorCount);
+
+      // Total sold from UJI KOLAB.html soldCounts sum
+      const totalSold = getTotalSold();
+      soldStat.textContent = totalSold >= 1000 ? formatNumber(totalSold) + '+' : formatNumber(totalSold);
+    }
+
+    // Remove incrementSoldCount() as sales handled in UJI KOLAB.html
+    // Keep for backward compat if called
+    function incrementSoldCount() {
+      // No-op: Actual sales increment per-product in UJI KOLAB.html
+    }
+
+     // Call updateStats immediately for instant load
+     updateStats();
+
     function openPromo(brand) {
       const modal = document.getElementById("promoModal");
       const title = modal.querySelector("h2");
       const desc = modal.querySelector("p");
       
       if (brand === 'iPhone') {
-        title.textContent = "Diskon 20% iPhone";
-        desc.innerHTML = "Dapatkan diskon hingga <strong>20%</strong> untuk semua model iPhone terbaru! Promo berlaku hingga akhir bulan.";
+        title.textContent = "Diskon 10% iPhone";
+        desc.innerHTML = "Dapatkan diskon hingga <strong>10%</strong> untuk semua model iPhone terbaru! Promo berlaku hingga akhir bulan.";
       } else if (brand === 'Samsung') {
-        title.textContent = "Diskon 15% Samsung";
-        desc.innerHTML = "Penawaran spesial untuk Galaxy series dengan diskon hingga <strong>15%</strong>. Termasuk Galaxy S24 dan Ultra!";
+        title.textContent = "Diskon 10% Samsung";
+        desc.innerHTML = "Penawaran spesial untuk Galaxy series dengan diskon hingga <strong>10%</strong>. Termasuk Galaxy S24 dan Ultra!";
       } else if (brand === 'Semua') {
         title.textContent = "Diskon 10% Semua Brand";
         desc.innerHTML = "Diskon <strong>10%</strong> untuk semua HP dari brand apa saja. Terbatas stok, buruan!";
       } else if (brand === 'Xiaomi') {
-        title.textContent = "Diskon 25% Xiaomi";
-        desc.innerHTML = "Promo eksklusif Xiaomi dengan diskon hingga <strong>25%</strong> untuk model terbaru seperti Xiaomi 14 Ultra!";
+        title.textContent = "Diskon 10% Xiaomi";
+        desc.innerHTML = "Promo eksklusif Xiaomi dengan diskon hingga <strong>10%</strong> untuk model terbaru seperti Xiaomi 14 Ultra!";
       } else if (brand === 'Google') {
-        title.textContent = "Diskon 18% Google Pixel";
-        desc.innerHTML = "Diskon spesial <strong>18%</strong> untuk seri Google Pixel. Termasuk Pixel 8 Pro dan Pixel 9!";
+        title.textContent = "Diskon 10% Google Pixel";
+        desc.innerHTML = "Diskon spesial <strong>10%</strong> untuk seri Google Pixel. Termasuk Pixel 8 Pro dan Pixel 9!";
       } else if (brand === 'Flash') {
-        title.textContent = "Diskon 30% Flash Sale";
-        desc.innerHTML = "Flash sale mingguan dengan diskon hingga <strong>30%</strong> untuk produk pilihan. Cek setiap hari Jumat!";
+        title.textContent = "Diskon 10% Flash Sale";
+        desc.innerHTML = "Flash sale mingguan dengan diskon hingga <strong>10%</strong> untuk produk pilihan. Cek setiap hari Jumat!";
       } else {
         title.textContent = "Promo Spesial April";
-        desc.innerHTML = "Diskon hingga <strong>30%</strong> untuk semua smartphone terbaru!";
+        desc.innerHTML = "Diskon hingga <strong>10%</strong> untuk semua smartphone terbaru!";
       }
       
       modal.style.display = "flex";
@@ -273,6 +742,18 @@
     function closeContact() {
       document.getElementById("contactModal").style.display = "none";
     }
+
+    // Clone phone items for seamless infinite scroll
+    (function() {
+      const track = document.querySelector('.slider-track');
+      if (track) {
+        const items = Array.from(track.children);
+        items.forEach(item => {
+          const clone = item.cloneNode(true);
+          track.appendChild(clone);
+        });
+      }
+    })();
   </script>
 </body>
 </html>
