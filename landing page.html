@@ -525,6 +525,331 @@
     .footer .footer-links a:hover {
       color: #a8dadc;
     }
+
+    /* ===== RESPONSIVE DESIGN UNTUK MOBILE ===== */
+
+    /* Tablet (768px ke bawah) */
+    @media (max-width: 768px) {
+      .navbar-container {
+        width: 95%;
+      }
+
+      .navbar-brand {
+        font-size: 18px;
+        gap: 5px;
+      }
+
+      .navbar-menu {
+        gap: 0;
+        flex-wrap: wrap;
+      }
+
+      .nav-link {
+        padding: 15px 10px;
+        font-size: 12px;
+        flex: 1;
+        text-align: center;
+      }
+
+      .navbar-stats {
+        display: none;
+      }
+
+      .hero {
+        min-height: 60vh;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+        margin-bottom: 15px;
+      }
+
+      .hero p {
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+
+      .btn-group {
+        gap: 10px;
+      }
+
+      .btn {
+        padding: 12px 20px;
+        font-size: 14px;
+      }
+
+      .discount-section h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+
+      .discount-grid {
+        gap: 15px;
+        padding: 0 15px;
+      }
+
+      .discount-card {
+        min-width: 250px;
+        padding: 15px;
+      }
+
+      .discount-card h3 {
+        font-size: 14px;
+      }
+
+      .discount-card p {
+        font-size: 12px;
+      }
+
+      .modal-card {
+        max-width: 90%;
+        padding: 15px;
+      }
+
+      .footer p {
+        font-size: 12px;
+      }
+
+      .footer .footer-links {
+        gap: 10px;
+      }
+    }
+
+    /* Mobile (480px ke bawah) */
+    @media (max-width: 480px) {
+      body {
+        font-size: 14px;
+      }
+
+      .navbar-container {
+        width: 100%;
+        padding: 0 5px;
+      }
+
+      .navbar-brand {
+        font-size: 14px;
+        padding: 10px 0;
+        gap: 3px;
+      }
+
+      .navbar-brand .brand-icon {
+        font-size: 18px;
+      }
+
+      .navbar-menu {
+        width: 100%;
+        gap: 0;
+        flex-wrap: wrap;
+        justify-content: space-around;
+      }
+
+      .nav-link {
+        padding: 10px 5px;
+        font-size: 9px;
+        flex: 1;
+        min-width: auto;
+        border: none;
+        text-align: center;
+      }
+
+      .nav-link .nav-icon {
+        font-size: 14px;
+        display: block;
+        margin-bottom: 2px;
+      }
+
+      .navbar-stats {
+        display: none !important;
+      }
+
+      .hero {
+        min-height: 50vh;
+        padding: 20px;
+        justify-content: center;
+      }
+
+      .hero h1 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+      }
+
+      .hero p {
+        font-size: 14px;
+        margin-bottom: 15px;
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+      }
+
+      .btn-group {
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+      }
+
+      .btn {
+        padding: 12px;
+        font-size: 13px;
+        width: 100%;
+        border-radius: 4px;
+      }
+
+      .discount-section {
+        padding: 30px 0;
+      }
+
+      .discount-section h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+
+      .discount-section .container {
+        width: 100%;
+        padding: 0;
+      }
+
+      .discount-grid {
+        flex-wrap: wrap;
+        overflow-x: visible;
+        justify-content: center;
+        gap: 12px;
+        max-width: 100%;
+        padding: 0 10px;
+        margin: 0 auto;
+      }
+
+      .discount-card {
+        flex: 1;
+        min-width: calc(50% - 6px);
+        max-width: 160px;
+        padding: 12px;
+        border-radius: 8px;
+      }
+
+      .discount-card h3 {
+        font-size: 12px;
+        margin-bottom: 8px;
+      }
+
+      .discount-card p {
+        font-size: 11px;
+        margin-bottom: 8px;
+        line-height: 1.3;
+      }
+
+      .discount-card .btn {
+        padding: 8px 12px;
+        font-size: 11px;
+        width: 100%;
+      }
+
+      .modal {
+        padding: 20px;
+      }
+
+      .modal-card {
+        max-width: 90%;
+        padding: 15px;
+        width: 100%;
+      }
+
+      .modal-card h2 {
+        font-size: 16px;
+        margin-bottom: 12px;
+      }
+
+      .modal-card p {
+        font-size: 12px;
+        margin-bottom: 8px;
+        line-height: 1.4;
+      }
+
+      .modal-card a {
+        color: #e63946;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .close-btn {
+        padding: 10px 15px;
+        font-size: 12px;
+      }
+
+      .footer {
+        padding: 20px 0;
+      }
+
+      .footer-container {
+        width: 95%;
+      }
+
+      .footer p {
+        font-size: 11px;
+        margin: 5px 0;
+      }
+
+      .footer .footer-links {
+        flex-direction: column;
+        gap: 5px;
+        margin: 8px 0;
+      }
+
+      .footer .footer-links a {
+        font-size: 11px;
+      }
+
+      .container {
+        width: 100%;
+        padding: 15px;
+      }
+    }
+
+    /* Extra Small (360px ke bawah) */
+    @media (max-width: 360px) {
+      .navbar-brand span {
+        display: none;
+      }
+
+      .navbar-brand .brand-icon {
+        font-size: 16px;
+      }
+
+      .nav-link {
+        padding: 8px 3px;
+        font-size: 8px;
+      }
+
+      .hero h1 {
+        font-size: 18px;
+      }
+
+      .hero p {
+        font-size: 12px;
+      }
+
+      .btn {
+        padding: 10px;
+        font-size: 12px;
+      }
+
+      .discount-grid {
+        padding: 0 5px;
+      }
+
+      .discount-card {
+        min-width: calc(50% - 5px);
+        max-width: 140px;
+        padding: 8px;
+      }
+
+      .discount-card h3 {
+        font-size: 11px;
+      }
+
+      .discount-card p {
+        font-size: 10px;
+      }
+    }
   </style>
   </head>
   <body>

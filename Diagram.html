@@ -205,22 +205,255 @@
       font-style: italic;
     }
 
-    @media (max-width: 720px) {
+    /* ===== RESPONSIVE DESIGN UNTUK MOBILE ===== */
+
+    /* Tablet (768px ke bawah) */
+    @media (max-width: 768px) {
       main {
-        padding: 20px 16px 32px;
+        padding: 24px 16px 32px;
+        max-width: 100%;
+      }
+
+      header {
+        padding: 12px 16px;
+      }
+
+      .nav {
+        gap: 12px;
+      }
+
+      .nav h1 {
+        font-size: 1.25rem;
+      }
+
+      .nav-links {
+        gap: 8px;
+      }
+
+      .nav-links a {
+        padding: 8px 12px;
+        font-size: 0.85rem;
       }
 
       .hero {
-        padding: 24px;
+        padding: 20px;
       }
 
       .hero .summary {
         flex-direction: column;
         align-items: flex-start;
+        gap: 15px;
+      }
+
+      .hero .summary strong {
+        font-size: 2.5rem;
+      }
+
+      .hero .summary button {
+        width: 100%;
+      }
+
+      .hero p.description {
+        font-size: 0.9rem;
+      }
+
+      .chart-card,
+      .table-card {
+        padding: 20px;
+      }
+
+      .chart-card h2,
+      .table-card h2 {
+        font-size: 1.2rem;
+      }
+
+      canvas {
+        height: 300px;
+      }
+
+      th,
+      td {
+        padding: 12px 10px;
+        font-size: 0.9rem;
+      }
+
+      th {
+        font-size: 0.75rem;
+      }
+    }
+
+    /* Mobile (480px ke bawah) */
+    @media (max-width: 480px) {
+      main {
+        padding: 16px 12px 24px;
+      }
+
+      header {
+        padding: 10px 12px;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
       }
 
       .nav h1 {
-        font-size: 1.25rem;
+        font-size: 1.1rem;
+        margin: 0;
+      }
+
+      .nav-links {
+        width: 100%;
+        gap: 6px;
+      }
+
+      .nav-links a {
+        flex: 1;
+        padding: 8px 10px;
+        font-size: 0.8rem;
+        text-align: center;
+      }
+
+      .hero {
+        padding: 16px;
+        margin-bottom: 16px;
+        border-radius: 12px;
+      }
+
+      .hero .summary {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .hero .summary div p {
+        margin: 0 0 4px 0;
+        font-size: 0.85rem;
+      }
+
+      .hero .summary strong {
+        font-size: 2rem;
+      }
+
+      .hero .summary button {
+        width: 100%;
+        padding: 12px 16px;
+        font-size: 0.9rem;
+      }
+
+      .hero p.description {
+        font-size: 0.85rem;
+        margin: 12px 0 0 0;
+        line-height: 1.5;
+      }
+
+      .chart-card,
+      .table-card {
+        padding: 16px;
+        margin-bottom: 16px;
+        border-radius: 12px;
+      }
+
+      .chart-card h2,
+      .table-card h2 {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+      }
+
+      canvas {
+        height: 240px;
+        border-radius: 8px;
+      }
+
+      .table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      table {
+        min-width: 300px;
+        font-size: 0.85rem;
+      }
+
+      th,
+      td {
+        padding: 10px 8px;
+        font-size: 0.8rem;
+      }
+
+      th {
+        font-size: 0.7rem;
+        padding: 8px 6px;
+      }
+
+      td strong {
+        display: block;
+      }
+
+      .empty-state {
+        padding: 12px 0;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Extra Small (360px ke bawah) */
+    @media (max-width: 360px) {
+      main {
+        padding: 12px 10px 20px;
+      }
+
+      header {
+        padding: 8px 10px;
+      }
+
+      .nav h1 {
+        font-size: 1rem;
+      }
+
+      .nav-links a {
+        padding: 6px 8px;
+        font-size: 0.75rem;
+      }
+
+      .hero {
+        padding: 12px;
+      }
+
+      .hero .summary strong {
+        font-size: 1.8rem;
+      }
+
+      .hero p.description {
+        font-size: 0.8rem;
+      }
+
+      .chart-card,
+      .table-card {
+        padding: 12px;
+      }
+
+      .chart-card h2,
+      .table-card h2 {
+        font-size: 1rem;
+      }
+
+      canvas {
+        height: 200px;
+      }
+
+      table {
+        min-width: 250px;
+      }
+
+      th,
+      td {
+        padding: 8px 4px;
+        font-size: 0.75rem;
+      }
+
+      th {
+        font-size: 0.65rem;
       }
     }
   </style>
