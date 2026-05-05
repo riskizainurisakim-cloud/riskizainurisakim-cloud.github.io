@@ -463,7 +463,7 @@
     <nav class="nav">
       <h1>Diagram Penjualan</h1>
       <div class="nav-links">
-        <a href="landing page.html">Home</a>
+        <a href="landing page.html">Beranda</a>
         <a href="UJI KOLAB.html">Produk</a>
         <a href="Diagram.html" class="active">Diagram</a>
       </div>
@@ -527,6 +527,7 @@
     function buildProductRows(soldCounts) {
       const ids = Object.keys(soldCounts)
         .map(id => Number(id))
+        .filter(id => Number.isInteger(id) && !Number.isNaN(id))
         .sort((a, b) => a - b);
 
       const rows = ids.map(id => ({
@@ -571,7 +572,9 @@
       const allIds = Array.from(new Set([
         ...Object.keys(productNames).map(Number),
         ...Object.keys(soldCounts).map(Number)
-      ])).sort((a, b) => a - b);
+      ]))
+        .filter(id => Number.isInteger(id) && !Number.isNaN(id))
+        .sort((a, b) => a - b);
 
       const labels = allIds.map(id => productNames[id] || `Produk ${id}`);
       const values = allIds.map(id => parseInt(soldCounts[id], 10) || 0);

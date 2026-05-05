@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Riski Phone Store</title>
   <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -91,7 +94,7 @@
     }
     .hero {
       height: 100vh;
-      background: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&q=80&w=1600') no-repeat center center/cover;
+      background: url('https://png.pngtree.com/thumb_back/fh260/background/20230713/pngtree-d-render-of-an-orange-colored-interior-design-store-selling-mobile-image_3860073.jpg') no-repeat center center/cover;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -456,6 +459,12 @@
       color: #666;
       margin-bottom: 15px;
     }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
 
     /* Modal umum */
     .modal {
@@ -542,13 +551,31 @@
       .navbar-menu {
         gap: 0;
         flex-wrap: wrap;
+        justify-content: center;
       }
 
       .nav-link {
         padding: 15px 10px;
         font-size: 12px;
-        flex: 1;
+        flex: 1 1 140px;
+        max-width: 180px;
         text-align: center;
+        min-width: 120px;
+      }
+
+      .phone-slider-section {
+        padding: 40px 0;
+      }
+      .slider-container {
+        padding: 20px 0;
+      }
+
+      .phone-item {
+        margin: 0 12px;
+      }
+      .phone-card {
+        width: 240px;
+        height: 430px;
       }
 
       .navbar-stats {
@@ -557,6 +584,7 @@
 
       .hero {
         min-height: 60vh;
+        padding: 30px 15px;
       }
 
       .hero h1 {
@@ -646,7 +674,8 @@
       .nav-link {
         padding: 10px 5px;
         font-size: 9px;
-        flex: 1;
+        flex: 1 1 45%;
+        max-width: 45%;
         min-width: auto;
         border: none;
         text-align: center;
@@ -662,14 +691,20 @@
         display: none !important;
       }
 
+      .navbar-menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
       .hero {
-        min-height: 50vh;
-        padding: 20px;
+        min-height: auto;
+        padding: 22px 15px;
         justify-content: center;
       }
 
       .hero h1 {
-        font-size: 20px;
+        font-size: 22px;
         margin-bottom: 10px;
         text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
       }
@@ -719,9 +754,9 @@
       }
 
       .discount-card {
-        flex: 1;
-        min-width: calc(50% - 6px);
-        max-width: 160px;
+        flex: 1 1 100%;
+        min-width: 100%;
+        max-width: 100%;
         padding: 12px;
         border-radius: 8px;
       }
@@ -729,6 +764,23 @@
       .discount-card h3 {
         font-size: 12px;
         margin-bottom: 8px;
+      }
+
+      .phone-card {
+        width: 200px;
+        height: 380px;
+      }
+      .phone-screen {
+        padding: 15px;
+      }
+      .phone-features span {
+        font-size: 11px;
+        padding: 6px 12px;
+      }
+
+      .footer-container {
+        width: 95%;
+        padding: 0 10px;
       }
 
       .discount-card p {
@@ -819,8 +871,19 @@
         font-size: 8px;
       }
 
+      .navbar-menu {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 4px;
+      }
+
       .hero h1 {
         font-size: 18px;
+      }
+
+      .phone-card {
+        width: 180px;
+        height: 340px;
       }
 
       .hero p {
@@ -837,8 +900,8 @@
       }
 
       .discount-card {
-        min-width: calc(50% - 5px);
-        max-width: 140px;
+        min-width: 100%;
+        max-width: 100%;
         padding: 8px;
       }
 
@@ -861,10 +924,10 @@
           <span>Riski Phone</span>
         </a>
         <div class="navbar-menu">
-         <a href="#" class="nav-link active" onclick="navigateTo('home', this)">
-             <span class="nav-icon">🏠</span>
-             Home
-           </a>
+        <a href="#" class="nav-link active" onclick="navigateTo('beranda', this)">
+            <span class="nav-icon">🏠</span>
+            Beranda 
+          </a>
            <a href="UJI KOLAB.html" class="nav-link" onclick="navigateTo('produk', this)">
              <span class="nav-icon">📦</span>
              Produk
@@ -918,39 +981,33 @@
       <h2>🎉 Diskon Spesial</h2>
       <div class="discount-grid">
         <div class="discount-card">
-          <h3>Diskon 10% iPhone</h3>
-          <p>Dapatkan diskon hingga 10% untuk semua model iPhone terbaru!</p>
-          <p><strong>Kode Diskon: IPHONE10</strong></p>
+          <h3>Diskon Rp 1 Juta iPhone</h3>
+          <p>Dapatkan diskon Rp 1.000.000 untuk semua model iPhone terbaru!</p>
+          <p><strong>Kode Diskon: IPHONE20</strong></p>
           <button class="btn" onclick="openPromo('iPhone')">Lihat Detail</button>
         </div>
         <div class="discount-card">
-          <h3>Diskon 10% Samsung</h3>
-          <p>Penawaran spesial untuk Galaxy series dengan diskon hingga 10%.</p>
+          <h3>Diskon Rp 1 Juta Samsung</h3>
+          <p>Penawaran spesial untuk Galaxy series dengan diskon Rp 1.000.000.</p>
           <p><strong>Kode Diskon: SAMSUNG10</strong></p>
           <button class="btn" onclick="openPromo('Samsung')">Lihat Detail</button>
         </div>
         <div class="discount-card">
-          <h3>Diskon 10% Semua Brand</h3>
-          <p>Diskon 10% untuk semua HP dari brand apa saja. Terbatas!</p>
-          <p><strong>Kode Diskon: ALL10</strong></p>
-          <button class="btn" onclick="openPromo('Semua')">Lihat Detail</button>
-        </div>
-        <div class="discount-card">
-          <h3>Diskon 10% Xiaomi</h3>
-          <p>Promo eksklusif Xiaomi dengan diskon hingga 10% untuk model terbaru!</p>
-          <p><strong>Kode Diskon: XIAOMI10</strong></p>
-          <button class="btn" onclick="openPromo('Xiaomi')">Lihat Detail</button>
-        </div>
-        <div class="discount-card">
-          <h3>Diskon 10% Google Pixel</h3>
-          <p>Diskon spesial 10% untuk seri Google Pixel. Jangan lewatkan!</p>
-          <p><strong>Kode Diskon: GOOGLE10</strong></p>
+          <h3>Diskon Rp 1 Juta Google Pixel</h3>
+          <p>Diskon spesial Rp 1.000.000 untuk seri Google Pixel. Jangan lewatkan!</p>
+          <p><strong>Kode Diskon: GOOGLE18</strong></p>
           <button class="btn" onclick="openPromo('Google')">Lihat Detail</button>
         </div>
         <div class="discount-card">
-          <h3>Diskon 10% Flash Sale</h3>
-          <p>Flash sale mingguan dengan diskon hingga 10% untuk produk pilihan!</p>
-          <p><strong>Kode Diskon: FLASH10</strong></p>
+          <h3>Diskon Rp 1 Juta Semua Brand</h3>
+          <p>Diskon Rp 1.000.000 untuk semua HP dari brand apa saja. Terbatas!</p>
+          <p><strong>Kode Diskon: ALL10</strong></p>
+          <button class="btn" onclick="openPromo('Semua')">Lihat Detail</button>
+        </div> 
+        <div class="discount-card">
+          <h3>Diskon Rp 1 Juta Flash Sale</h3>
+          <p>Flash sale mingguan dengan diskon Rp 1.000.000 untuk produk pilihan!</p>
+          <p><strong>Kode Diskon: FLASH30</strong></p>
           <button class="btn" onclick="openPromo('Flash')">Lihat Detail</button>
         </div>
       </div>
@@ -960,11 +1017,11 @@
     <footer class="footer">
       <div class="footer-container">
         <p><strong>Riski Phone Store</strong> - Solusi pilihan untuk smartphone dan aksesoris berkualitas.</p>
-         <div class="footer-links">
-         <a href="#" onclick="navigateTo('home', this)">Home</a>
-           <a href="UJI KOLAB.html" onclick="navigateTo('produk', this)">Produk</a>
-           <a href="#" onclick="openContact(); return false;">Kontak</a>
-         </div>
+        <div class="footer-links">
+        <a href="#" onclick="navigateTo('home', this)">Home</a>
+          <a href="UJI KOLAB.html" onclick="navigateTo('produk', this)">Produk</a>
+          <a href="#" onclick="openContact(); return false;">Kontak</a>
+        </div>
         <p>© 2026 Riski Phone Store. Semua hak dilindungi.</p>
       </div>
     </footer>
@@ -1034,26 +1091,26 @@
       const desc = modal.querySelector("p");
       
       if (brand === 'iPhone') {
-        title.textContent = "Diskon 10% iPhone";
-        desc.innerHTML = "Dapatkan diskon hingga <strong>10%</strong> untuk semua model iPhone terbaru! Promo berlaku hingga akhir bulan.";
+        title.textContent = "Diskon Rp 1 Juta iPhone";
+        desc.innerHTML = "Dapatkan diskon <strong>Rp 1.000.000</strong> untuk semua model iPhone terbaru! Gunakan kode: <strong>IPHONE20</strong>";
       } else if (brand === 'Samsung') {
-        title.textContent = "Diskon 10% Samsung";
-        desc.innerHTML = "Penawaran spesial untuk Galaxy series dengan diskon hingga <strong>10%</strong>. Termasuk Galaxy S24 dan Ultra!";
+        title.textContent = "Diskon Rp 1 Juta Samsung";
+        desc.innerHTML = "Penawaran spesial untuk Galaxy series dengan diskon <strong>Rp 1.000.000</strong>. Gunakan kode: <strong>SAMSUNG10</strong>";
       } else if (brand === 'Semua') {
-        title.textContent = "Diskon 10% Semua Brand";
-        desc.innerHTML = "Diskon <strong>10%</strong> untuk semua HP dari brand apa saja. Terbatas stok, buruan!";
+        title.textContent = "Diskon Rp 1 Juta Semua Brand";
+        desc.innerHTML = "Diskon <strong>Rp 1.000.000</strong> untuk semua HP dari brand apa saja. Gunakan kode: <strong>ALL10</strong>";
       } else if (brand === 'Xiaomi') {
-        title.textContent = "Diskon 10% Xiaomi";
-        desc.innerHTML = "Promo eksklusif Xiaomi dengan diskon hingga <strong>10%</strong> untuk model terbaru seperti Xiaomi 14 Ultra!";
+        title.textContent = "Diskon Rp 1 Juta Xiaomi";
+        desc.innerHTML = "Promo eksklusif Xiaomi dengan diskon <strong>Rp 1.000.000</strong>. Gunakan kode: <strong>250110</strong>";
       } else if (brand === 'Google') {
-        title.textContent = "Diskon 10% Google Pixel";
-        desc.innerHTML = "Diskon spesial <strong>10%</strong> untuk seri Google Pixel. Termasuk Pixel 8 Pro dan Pixel 9!";
+        title.textContent = "Diskon Rp 1 Juta Google Pixel";
+        desc.innerHTML = "Diskon spesial <strong>Rp 1.000.000</strong> untuk seri Google Pixel. Gunakan kode: <strong>GOOGLE18</strong>";
       } else if (brand === 'Flash') {
-        title.textContent = "Diskon 10% Flash Sale";
-        desc.innerHTML = "Flash sale mingguan dengan diskon hingga <strong>10%</strong> untuk produk pilihan. Cek setiap hari Jumat!";
+        title.textContent = "Diskon Rp 1 Juta Flash Sale";
+        desc.innerHTML = "Flash sale mingguan dengan diskon <strong>Rp 1.000.000</strong>. Gunakan kode: <strong>FLASH30</strong>";
       } else {
-        title.textContent = "Promo Spesial April";
-        desc.innerHTML = "Diskon hingga <strong>10%</strong> untuk semua smartphone terbaru!";
+        title.textContent = "Promo Spesial";
+        desc.innerHTML = "Diskon <strong>Rp 1.000.000</strong> untuk semua smartphone terbaru!";
       }
       
       modal.style.display = "flex";

@@ -575,397 +575,6 @@
       margin: 5px 0;
       font-size: 14px;
     }
-    
-    /* ===== RESPONSIVE DESIGN UNTUK MOBILE ===== */
-    
-    /* Tablet (768px ke bawah) */
-    @media (max-width: 768px) {
-      .navbar-menu {
-        gap: 0;
-      }
-      
-      .nav-link {
-        padding: 15px 10px;
-        font-size: 13px;
-      }
-      
-      .nav-link .nav-icon {
-        display: none;
-      }
-      
-      .container {
-        width: 95%;
-        padding: 15px;
-      }
-      
-      h1 {
-        font-size: 24px;
-      }
-      
-      h2 {
-        font-size: 18px;
-        margin-top: 20px;
-      }
-      
-      .brand-tabs {
-        flex-direction: column;
-        gap: 10px;
-      }
-      
-      .brand-buttons {
-        width: 100%;
-        flex-direction: column;
-        gap: 10px;
-      }
-      
-      .brand-btn {
-        width: 100%;
-      }
-      
-      .cart-btn {
-        width: 100%;
-      }
-      
-      .product-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-        gap: 15px;
-      }
-      
-      .product-card {
-        padding: 10px;
-      }
-      
-      .product-card img {
-        height: 120px;
-      }
-      
-      .product-info h3 {
-        font-size: 14px;
-      }
-      
-      .product-price {
-        font-size: 14px;
-      }
-      
-      .button-group {
-        gap: 5px;
-      }
-      
-      .btn-buy, .btn-desc, .btn-cart {
-        padding: 8px 10px;
-        font-size: 12px;
-      }
-      
-      .modal-content {
-        width: 90%;
-        padding: 15px;
-      }
-      
-      .cart-modal-content {
-        width: 95%;
-        padding: 15px;
-      }
-      
-      .receipt-modal-content {
-        width: 90%;
-        padding: 20px;
-      }
-      
-      input, select, textarea {
-        font-size: 14px;
-        padding: 8px;
-      }
-      
-      .footer {
-        padding: 20px 0;
-      }
-      
-      .footer p {
-        font-size: 12px;
-      }
-      
-      .footer .footer-links {
-        gap: 10px;
-      }
-    }
-    
-    /* Mobile (480px ke bawah) */
-    @media (max-width: 480px) {
-      .navbar-container {
-        width: 95%;
-        padding: 0 5px;
-      }
-      
-      .navbar-brand {
-        font-size: 18px;
-        gap: 5px;
-        padding: 12px 0;
-      }
-      
-      .navbar-brand .brand-icon {
-        font-size: 20px;
-      }
-      
-      .navbar-menu {
-        flex-wrap: wrap;
-        gap: 0;
-        width: 100%;
-        justify-content: flex-start;
-      }
-      
-      .nav-link {
-        padding: 12px 8px;
-        font-size: 11px;
-        flex: 1;
-        text-align: center;
-        min-width: 70px;
-      }
-      
-      .container {
-        width: 100%;
-        padding: 10px;
-      }
-      
-      h1 {
-        font-size: 20px;
-        margin: 10px 0;
-      }
-      
-      h2 {
-        font-size: 16px;
-        margin: 15px 0 10px 0;
-      }
-      
-      .brand-tabs {
-        flex-direction: column;
-        gap: 8px;
-        margin: 10px 0;
-      }
-      
-      .brand-buttons {
-        width: 100%;
-        flex-direction: column;
-        gap: 8px;
-      }
-      
-      .brand-btn {
-        width: 100%;
-        padding: 10px;
-        font-size: 13px;
-      }
-      
-      .cart-btn {
-        width: 100%;
-        padding: 10px;
-        font-size: 13px;
-      }
-      
-      .product-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
-        margin-top: 10px;
-      }
-      
-      .product-card {
-        padding: 12px;
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-      
-      .product-card img {
-        width: 80px;
-        height: 80px;
-        min-width: 80px;
-        border-radius: 4px;
-      }
-      
-      .product-info {
-        flex: 1;
-      }
-      
-      .product-info h3 {
-        font-size: 13px;
-        margin: 5px 0 3px 0;
-      }
-      
-      .product-price {
-        font-size: 12px;
-        margin: 3px 0;
-      }
-      
-      .sold-count {
-        font-size: 11px;
-        margin: 2px 0;
-      }
-      
-      .rating-summary {
-        font-size: 11px;
-        gap: 4px;
-      }
-      
-      .button-group {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-        margin-top: 8px;
-      }
-      
-      .btn-buy, .btn-desc, .btn-cart {
-        padding: 6px 8px;
-        font-size: 11px;
-        width: 100%;
-        border-radius: 4px;
-      }
-      
-      .back-card {
-        padding: 8px 12px;
-        font-size: 12px;
-      }
-      
-      .back-card h3 {
-        font-size: 13px;
-        margin: 3px 0;
-      }
-      
-      .back-card p {
-        font-size: 11px;
-        margin: 2px 0;
-      }
-      
-      /* Modal pada mobile */
-      .modal-content {
-        width: 95%;
-        max-height: 90vh;
-        padding: 12px;
-      }
-      
-      .modal-content h2 {
-        font-size: 16px;
-        margin-bottom: 10px;
-      }
-      
-      .cart-modal-content {
-        width: 95%;
-        max-height: 85vh;
-        padding: 12px;
-      }
-      
-      .cart-modal-content h2 {
-        font-size: 16px;
-        margin-bottom: 10px;
-      }
-      
-      .cart-item {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-        padding: 8px 0;
-      }
-      
-      .cart-item-info h4 {
-        font-size: 12px;
-      }
-      
-      .cart-item-controls {
-        width: 100%;
-        justify-content: space-between;
-      }
-      
-      .quantity-controls {
-        gap: 3px;
-      }
-      
-      .quantity-btn {
-        width: 20px;
-        height: 20px;
-        font-size: 10px;
-      }
-      
-      .receipt-modal-content {
-        width: 90%;
-        max-height: 85vh;
-        padding: 15px;
-      }
-      
-      .close-modal, .close-receipt, .close-desc, .close-cart, .close-review {
-        font-size: 18px;
-        top: 8px;
-        right: 8px;
-      }
-      
-      input, select, textarea {
-        font-size: 14px;
-        padding: 8px;
-        width: 100% !important;
-        margin-bottom: 8px !important;
-        box-sizing: border-box;
-      }
-      
-      .receipt-card {
-        padding: 12px;
-        margin: 8px 0;
-      }
-      
-      .receipt-card h4 {
-        font-size: 18px;
-        margin-bottom: 10px;
-      }
-      
-      .receipt-card p {
-        font-size: 13px;
-        margin: 5px 0;
-      }
-      
-      .footer {
-        padding: 15px 0;
-      }
-      
-      .footer-container {
-        width: 95%;
-      }
-      
-      .footer p {
-        font-size: 11px;
-        margin: 5px 0;
-      }
-      
-      .footer .footer-links {
-        flex-direction: column;
-        gap: 5px;
-        margin: 8px 0;
-      }
-      
-      .footer .footer-links a {
-        font-size: 11px;
-      }
-      
-      /* Rating stars pada mobile */
-      .rating-stars .star {
-        font-size: 20px;
-        gap: 2px;
-      }
-      
-      /* History pada mobile */
-      .history-summary {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-      }
-      
-      .history-summary p {
-        font-size: 12px;
-      }
-      
-      .history-detail {
-        margin-top: 8px;
-        padding: 8px;
-      }
-      
-      .history-detail p {
-        font-size: 12px;
-      }
-    }
   </style>
 </head>
 <body>
@@ -979,7 +588,7 @@
         <div class="navbar-menu">
            <a href="landing page.html" class="nav-link" onclick="navigateTo('home', this); return false;">
              <span class="nav-icon">🏠</span>
-             Home
+             Beranda
            </a>
            <a href="#" class="nav-link active" onclick="navigateTo('produk', this); return false;">
              <span class="nav-icon">📦</span>
@@ -999,7 +608,7 @@
     <div class="container">
     <a href="landing page.html" class="back-card-link">
       <div class="back-card">
-        ← Kembali ke Landing Page
+        ← Kembali ke Beranda
       </div>
     </a>
     <h1>📱 Riski Phone Store</h1>
@@ -1007,9 +616,9 @@
     <!-- Brand Tabs -->
     <div class="brand-tabs">
       <div class="brand-buttons">
-        <button class="brand-btn active" onclick="showBrand('iphone')">🍎 iPhone</button>
-        <button class="brand-btn" onclick="showBrand('samsung')">📱 Samsung</button>
-        <button class="brand-btn" onclick="showBrand('google')">🔍 Google</button>
+        <button class="brand-btn active" onclick="showBrand('iphone', event)">🍎 iPhone</button>
+        <button class="brand-btn" onclick="showBrand('samsung', event)">📱 Samsung</button>
+        <button class="brand-btn" onclick="showBrand('google', event)">🔍 Google</button>
       </div>
       <button class="cart-btn" onclick="openCart()">🛒 Keranjang (<span id="cartCount">0</span>)</button>
     </div>
@@ -1036,7 +645,12 @@
           <input type="text" id="selectedProduct" readonly style="width:100%;margin-bottom:10px"><br>
           <input type="text" id="custName" placeholder="Nama Anda" required style="width:100%;margin-bottom:10px"><br>
           <input type="text" id="custAddress" placeholder="Alamat" required style="width:100%;margin-bottom:10px"><br>
-          <input type="text" id="discountCode" placeholder="Kode Diskon (opsional)" style="width:100%;margin-bottom:10px"><br>
+          <input type="text" id="discountCode" placeholder="Kode Diskon (opsional)" style="width:100%;margin-bottom:10px" oninput="updateDiscountPreview()"><br>
+          <div id="discountPreview" style="padding:10px; background:#f0f0f0; border-radius:5px; margin-bottom:10px; display:none;">
+            <p style="margin:5px 0;"><strong>Harga:</strong> <span id="previewPrice">Rp 0</span></p>
+            <p style="margin:5px 0; color:green;"><strong>Diskon:</strong> -<span id="previewDiscount">Rp 0</span></p>
+            <p style="margin:5px 0; border-top:1px solid #999; padding-top:5px;"><strong>Total:</strong> <span id="previewTotal">Rp 0</span></p>
+          </div>
           <select id="payMethod" required style="width:100%;margin-bottom:10px">
             <option value="">Pilih Metode Pembayaran</option>
             <option value="Transfer Bank">Transfer Bank</option>
@@ -1111,12 +725,12 @@
         </div>
       </div>
     </div>
-
+                                                                                                                                                                                                                                                                                 
     <!-- Back to Landing Page -->
     <div class="back-card-link">
       <a href="landing page.html" class="back-card">
-        <h3>🏠 Kembali ke Halaman Utama</h3>
-        <p>Klik di sini untuk kembali ke landing page</p>
+        <h3>🏠 Kembali ke Beranda</h3>
+        <p>Klik di sini untuk kembali ke Beranda</p>
       </a>
     </div>
   </div>
@@ -1148,14 +762,14 @@ const products = [
   { id: 9, brand: "Google", name: "Google Pixel 9 pro", price: "Rp 18.000.000", desc: "Google Pixel 9 adalah smartphone dari Google yang dirilis tahun 2024, menggunakan chip Tensor G4 dan layar 6,3 inci OLED 120Hz Memiliki RAM 12 GB serta pilihan memori internal 128 GB dan 256 GB, dengan kamera 50 MP yang unggul dalam fotografi berbasis AI.", image: "data:image/webp;base64,UklGRqgRAABXRUJQVlA4IJwRAACQYgCdASrlAA4BPp1GnUqlo6YkptOciMATiWMQ2DWrRQYj2H1jkwO4P7HksD/d0edn007g3zDdH/zh+qc9CXy6PaPaWDu5m1Q5WVys7UAPy56N+jF6w/83+Y+BT9ferr+43sW/ruaessnE+FEOHTH/6RRSJG77Sxx0YhZ0d2Wvqnd5+Us5E5x2vYAxjGX4sD8C2dBn7GMFBLwmTy5BU2GGO+eTKNBsagIGd/c5huTyR6TE19/jVtWX+lhTazqw6DMuI7XJk7RwdsfwGrTl+Xe2F2Yk71WCwlA9TLizHbW+2MUYJL1ztZ2CaFAhT2ydblGsBQ72bLHmEzdOxPQhnCJb8q3xI44pnMqkP4v7AqovLymFW6tBF3/fwdxbo+e/2MBPtQvxxgB1Y0zquILbZggXyTU+H9YxorAyAA9jweXy/0SFyezbN67m/jK5RFs0sRrV8DCpnKY+1xT0vmdEHgNUjBZ7LVZXu+8+kDavZWw4vdaRnvzP0spnujSUfdeWKcVFET4HuWdYDSfDgvo06ECHwsWcJUdtnZhvoO3o0GEJ4jy9CgXoT2mD67x9mC0GaUVuUHTkgpmUzSiWOngLosQkuzHuyT8dqewfQ0/19gJDAAYuVpVNhw6lQsX4jWepjm59zRxJENbhq9g9hVMzu2SxivjPci27cyswm74E4Pqm5w+PGUaTQcPu7VZKkqGvErM/mjws3hWB9IPGAGGoJ4ktVHZoEestkNYXbtaH8dKq+wyFOFFzKITvmd1+q/2pCK/scBQElDDwAhYSeanSVfY+Pp6+e++LLkk8CeQix9Ocb3yc4oirQf8bY+xhJ9CwIwC9dmXIPtxMpaFDyJQAgbC/g7f4O+NtGbPVV5urL9hEDhxAMqLbAuIIVvfMA7Y3zSPYoJkGbejyCvsJ6v6spGu2W1rV/o+bATjHG9B/JBvkaPuXbSd/zEGNjUdBQ4/72Ot8ZWPZga+0m38+gYgF0dv+ZnjjFWysnA+/p9mb8v5UMUdYHUTYn8XqeYOQQxj3TlbcMBd1iBZz/OnHNqoYFjCGlzhByuAc6HU7JNv6AAD+/fiizHEzdF9gcBbMGOXYJk7SL0QbG1AWgKWoKC7JysLq71vPwt9gz/iS1eqiGfUMWPww9DM+vO/lay7AMddWtGcAv439MeGROYjAT77VJot+3wpvVT+KkeMB8qrR39mfzOiibh2MZ3KOxNyZi9bePyiFsP75midapkIEKYeMhuiz+0d8IBzwOdxRwAJ4lmbuAAcbkLmPi7E6uYks8q+WFfyJVeg+T6+q8E2dCqO5ZRdyMuq+wBB9r42DV/b5g6WPflQK44/jjAv1e8xnYLv7s0js9kEU41UjpHdpZwyy/eCAAWQ8p9k5Hu+KJekjMhehEvzaClxorCqH0oGsmU91/PwaEUuFF/RUL/0RtTLJLIc48L1bLeH0YTLro5qiGsL8EzWqj9xva0RgFRzMwC+3xdg2ZcxHfXz7xmlf4+gVA6/5oxLmrf3fnQegFPfP+yCBrUXdkBogOHp11FgfesAJ8GvSwzW6Z4HPQIKsHInkXgv+sv5a5AR0S0v67Q5kPy++VwcvJX2eo+lDQem4+kNFOu5PC6ENsStF5BGXZOvQ+aLruhCJDwn1rip2mzTpBeFuaAyQoqQ3O2QxKPx2/LSQNIiYnxQp+KjRcm2GNoH454Spn/u3+3n6zLE3c9XdGtXHRScKdvK3S8xC5n1AYrNqgodNU49osCqjANd+wJfL39skG2uaYBoTgeQ2fZkKt/vKtvXvAyHsG7aYUSYZSf+/pFi+ctuSzWtHF2GdbUK4B16WHMcaDddSgaLjFFBpQur+Sjj/sDc5ZiuaMF7IMMyunI8ImYlHdV2vh4NIP0RNoVxnH0BbuGy04zOMHJaZMP0VWRqutwbvEtmJPWkLEIiy+eniNj6O96AL948yxkDBkiAyCTy9YvbSoLX61a4XdXS5vGHXUQDF1HRTmbTt/91CC6PxhXwN1893yxMCHo5gl/d7ce2H/2jrqJaDOF5sbDMCcDFdCSozrBh9wyJ+nc9OkswHRcluCzu3vt+d/BwmN3yFCBNPjrdo9nxDl/76Kh3ZFyNBObrZcA6+rz/3ZtS476abNbSns8+CmSoMfOGrCq+q3Pcfr03vHx5IpoEmSAhlmnTDdJT0ZH9am22jzxiD/CdRee/CiPgIzd+VemaKJjy7Ot4KSYDMFXdHfrvCeI8dRHNugpGl8lnrFtmpNot6oWPQt4T2gPJAjcT1gF1k1xFicWY2X6/phmDlPhiRG+6bhI1ywNj50PF9rPO9e8ZKjTyg+uSGERcU+MTtHmGmNkKJqdIym8QczTepJCPKdcD4luea5FdONfGucOwbfjal4gik/FHnbkcGtetFb5LRLCO3YNnXaPjBauqPvv1qkOHwKSS84Jh+uJ2vg2+BxAS6F79A/DZ5KIXtBSHYae/9cdjZwz0GyFcw53SLizSuxx081Ssu7HvKGD9fj2urii8tdRf2MGOb18WaPnmE9GKda0PwVwk46W1sIkgYkpGM1N/pI1SOPvSZ/bk0wVfU95TuPJ5A/oJN1xkJmMKfFWzwq23erZBjxvsw5y65UEZShU/RU5ywV2TQ3h5baXjv8WxBZ4B5/nrjR327ujrbiDiWLFV5B6k2JeZYcchJfX8Rtnkzq/1Cznfqm2gZB8ra2m1WqDa/YEnEe/bW4BmAw2R+9UAUlY8DGjyKv2mCV3OY7CUWyEkwUUUk+zn33Yo70luSVgW01xU7/a+UjZq3+AbPYOJEZ7kqAhlY0tjSGjsOaJ93fLcGgkNMsuwhBPvUU4rZzXOeUeADVN5Rw4BsDmJ9FPgVHJECpKsvJb+rdpI6bjXOVykF7V9jA7VtrR/CKzhftcFTaWkZQHn3DeanjG2l9dhpX2plcXUj8MUqKouG/cCNk34Zlo6dIUyvHaL9WuSHua+I2Yl2ONQqUIDI51hr3S3Ma+C7VRgI2llvNFBcJGutE0IHB3PPyGa1q2+ee3uEcUgZxgMMoLTGGpznjAe41mP1HSg5SIrtIb/GkZ7S38KOOoyk8WntQ2mJvKGv9/et/A5L1DHdewqf57Yl9Bq5P68TcXWvXRs+sMyqL91PRM6b3dmNV88DSNeY6qsI3708K8GROYlexONvwwL7atoGYgG40KBwS7aKXGM/ts3zChqByDLoWysoIFvYDMuAan8cNXHVPmOruyGpch800cwHSNcHmgEZpxzZ94zJSFR6ihzJn7eNRvwnPcPyGEP+106368iF599TZYsjz/nNxs5Brm6BqWDQElHeOnl8Tj+lJO1aUTZtq1rhhrJPf03C2WMIIr/tdWSIWVP+JtXeYX1wuHlKkPglu+5xYHVh6ZW/1XgNQoKNpty08eYlBPerW9/28Wg4wwaWDSwfPZHv/8yn7cnwNjo8l4H+wFWQd+lv7BAzJ1JYCUloPe43kE+DVzD+v63hk3pnh27pa+SO1H4gGsB6HB2Kwz8eWjqsGOpXwhULD+ify2QgCyWhaMMx6xdzvpZesL6C+bvPy4L/0AGB0rT1VHFcXRtWff/tTP404ibqVDFHp8w8gTENwkUiJUvIGgXwbxck/5TBWn14tNx8Rml1mbLYukJXQcyf4YPLMVIOb1I+SIyhkPqK7/gTSSiuVNhle+rr1SOoUDxfcRHl6hLtWSbePoY71zpVLTgcUkRjmlp7I44c45Xe2R9f1xTjhmXQxGXmnkGmhOKkrjgP+7V4CQOq8HGidl1RDkBAbrI4fDOuOe7i/Xo4peMwzezp4uxX0fgi4WQBfCECe4hmqTOKhCt/Z8LgftElwHGrc6VO9akamDHyq4Gb99cBuCTyMxNZ3NhboGD6+d1+wNK0aPA/rJecidg4uoptsqcbHN8gii1IzfNXOSyXoaeuSx2xfLvNQ1LJ+gLaC5YcOQeanLlTNRt1gQhF8kjykJtkmoaPFL4YG0Xi5N0eAcrjXdKuq3t4lYDrElHlCbiFHFwKj4ABXHimY5TpnkDviA6jIL7zKs00iCUdUhSmmak8aN8fTP0fzsVZHgrA+iPIWVTHeE2FBViIZgNUYqPL88mLZ0/WlAP/lyFMrxCVMOgvdgt69vldWrURAeXdXVmFZpC1Gz743g3U6cz5mQDMMT5nFUk3nue7Ir6qfFCKvCOM46U6rCehkRz4kZ6rDKbS+H8MQPAPLKgLCOnIdPVySkCAyJQ/WYV8mBX076h/jdI+RKBWMgQvMQ6onPKHwh15zoPFgcWabBH7+FLeFM/qqCGRQgJiufkWrrYLz0QeSJn59loRJUxb8xkR/vTp9gdf4/ycVYJA3qL0724/4WxOHnekQynQkArCQ2pi/6XkOToMOJ85y5m2GOzEMfL9iyeKD4+a0DZXpRN0HOxta5WdQxDivHYA2QJCm4mdoauk6pELI+igxSVL+tg/MxG7/pc42vH180kAe9VQ7IqSFNKqM3+kc9H2EcEH0kj5uklFippt1mRYrdZa0UxpXVIYzHLNkoyUtSUvNbOXAEaWbJ9EumeZza3DrQ7iYSSO8NtTowZTbFjlVIL00JtH8uLhz0ORczE1flP5ZB9OIvAmBZ+GMYm5xHIQ3HV72+tVeIMzIlcxi4CjuJNhfwMO0xclL0EfAp0e3h0+/+NWeY2KZcyQZ/+cyKlIwdGEyIYHcGz36rao0bYsF+xJoZOxbcfGvQTbgKlIkReN5OeyOAmWAuJ9AB41DQJ1AO103eBNgzlZKMtV1qSoe3wKl3JABxUkqyl8gmGdigiO1WMH5rRwC97mhJp0tWAtlxpaDnBMgDEZTCn0VKF0V/90icRKZnXSWz7AxZ10+XZdqjqoPHe9/ZLNGIo8NKIYwb3RZiMfSu1DwO0tiRc5yEVXMucjrJXehOsN0WOy8A6L1YNTo0q9t4sjQNw/t2RWeUXBNiorvYqjrzovntjIDJ4MvWprCbrDIysIvoMscg4CUSzulhmAmPfIdMHDtwDK5C/MAc6MS7YRTIFCcGb9+/mxfCXA2JAoWmtXQPsOwjTBiX+Ix2HHTFKcG1GxXlp8Wf6P9HIyxco7aAOo3yYmJjV5B0/+K6dB7ZY3AQAJ+uz2lh1kK10agd4MWTbLk+nLs2y+fnDdHob8Om+ZvvAHiqAHAEoLJ4pH4MNvTrtzs7vb23IzMHpsWSb8Q1cfiKcx2O0pMO5m7U4hYnb7NJcVFSZ3fGcivOzXD8gYh3RonbSTXWcBMNBFeAuQJYU2bE9DT1/bj2fDykUI+UuWRo7ehX774YfDD+fF5j7ah1+9ziRza7aLG/lnNqhIHb0LxkuTEA+uqw8LGPsSyj/3RyzU/8aVF3yFQbUj9iccLqzYiXxGq5cUR95xGPqp/ToQCiv2iDHiBJjV1yRtYATHI8RLIeCD3TIKqZ5Qa2F6RqaFMQ/OF0wYJVZCJLUPk9Qi/3Xr6S/tXRpVHqjwSByqvLEuK6qS3jn9Z3wn1RPFGnxLLRdC2jri4Sz5O7jfT90GnkexQKWGlWf0RbOYVxW92mp3j/ISUhDQiBxiI818GdqPc6SePgsOEV7YBfN21ueax0M4FrUIi8W+RnWHuCdRU6orS7yux+Hb+FY/tlx6pnbkzkbQZQYQupIDf0DoUDsd9/qU0LOTMlSNVNPdxF77yU8Qm8QtnaPB0Sed5KVp/ogu1WDFtF/pKj7Tn64st/fgNSnUKIk/r89uwC6X7pSu4zOuVx0EIsp85CZXq4Jr7zmELNX0uXAfCaGDHUY77Mq2XqoL47WZDWhK2/pKM1pw4IPw56Jk8spEnpXK/dnnOjRKLj41Q3wP3Jb5V0Ntv1RvrX/cQhKiJgJHtYqiOA/U/IeXaksIWq57K4dfcEnwm8ilRTLJAjNnAwKpi43PDdu+/HpytMdInvh/uiQ/8mV1xJupjNlJAblWl6DBkF53G5msVEN0GBFF5n4WQcLDPuEtdFehhAkfhFTEL2C1UziJTngCnBLQFqeEM8Pk1Xqt0k+koNfKQ9f8dEyV6fHY3uX1/myKHr2CsiPB9sLnxBgAAA==" },
 ];
 
-// Kode Diskon
+// Kode Diskon - Potongan tetap Rp 1.000.000
 const discountCodes = {
-  "IPHONE20": { discount: 0.10, brand: "iPhone" },
-  "SAMSUNG10": { discount: 0.10, brand: "Samsung" },
-  "GOOGLE18": { discount: 0.10, brand: "Google" },
-  "FLASH30": { discount: 0.10, brand: null }, // Berlaku untuk semua
-  "ALL10": { discount: 0.10, brand: null }, // Berlaku untuk semua
-  "250110": { discount: 0.20, brand: null } // Kode diskon baru, diskon 20% untuk semua brand
+  "IPHONE20": { discount: 1000000, brand: "iPhone", isFlat: true },
+  "SAMSUNG10": { discount: 1000000, brand: "Samsung", isFlat: true },
+  "GOOGLE18": { discount: 1000000, brand: "Google", isFlat: true },
+  "FLASH30": { discount: 1000000, brand: null, isFlat: true }, // Berlaku untuk semua
+  "ALL10": { discount: 1000000, brand: null, isFlat: true }, // Berlaku untuk semua
+  "250110": { discount: 1000000, brand: null, isFlat: true } // Potongan Rp 1.000.000
 };
 
 // Keranjang Belanja
@@ -1188,9 +802,42 @@ document.getElementById('payMethod').addEventListener('change', function() {
   }
 });
 
+// Update preview diskon real-time
+function updateDiscountPreview() {
+  const discountCode = document.getElementById('discountCode').value.toUpperCase().trim();
+  const productPrice = parseInt(modal.dataset.productPrice) || 0;
+  const productBrand = modal.dataset.productBrand || '';
+  const previewDiv = document.getElementById('discountPreview');
+  
+  let discountAmount = 0;
+  
+  if (discountCode && discountCodes[discountCode]) {
+    const discountInfo = discountCodes[discountCode];
+    if (discountInfo.brand === null || discountInfo.brand === productBrand) {
+      if (discountInfo.isFlat) {
+        // Potongan tetap
+        discountAmount = discountInfo.discount;
+      } else {
+        // Potongan persentase
+        discountAmount = Math.round(productPrice * discountInfo.discount);
+      }
+    }
+  }
+  
+  if (discountCode && productPrice > 0) {
+    const total = productPrice - discountAmount;
+    document.getElementById('previewPrice').textContent = 'Rp ' + productPrice.toLocaleString('id-ID');
+    document.getElementById('previewDiscount').textContent = 'Rp ' + discountAmount.toLocaleString('id-ID');
+    document.getElementById('previewTotal').textContent = 'Rp ' + total.toLocaleString('id-ID');
+    previewDiv.style.display = 'block';
+  } else {
+    previewDiv.style.display = 'none';
+  }
+}
+
 // Tampilkan Produk per Brand
 function displayProducts() {
-  const brands = ["iPhone", "Samsung", "Google", "Xiaomi"];
+  const brands = ["iPhone", "Samsung", "Google"];
   brands.forEach(brand => {
     const grid = document.getElementById(brand.toLowerCase() + "Grid");
     grid.innerHTML = products.filter(p => p.brand === brand).map(product => {
@@ -1221,7 +868,7 @@ function displayProducts() {
 }
 
 // Tampilkan Brand Tertentu
-function showBrand(brand) {
+function showBrand(brand, event) {
   // Sembunyikan semua grid
   const grids = document.querySelectorAll('.product-grid');
   grids.forEach(grid => grid.classList.remove('active'));
@@ -1233,7 +880,9 @@ function showBrand(brand) {
   // Update tombol aktif
   const buttons = document.querySelectorAll('.brand-btn');
   buttons.forEach(btn => btn.classList.remove('active'));
-  event.target.classList.add('active');
+  if (event && event.target) {
+    event.target.classList.add('active');
+  }
 }
 
 // Buka Modal Deskripsi
@@ -1348,22 +997,26 @@ function checkoutCart() {
   const productList = cart.map(item => `${item.name} (${item.quantity}x)`).join(', ');
   
   document.getElementById('selectedProduct').value = `${productList} - Total: Rp ${total.toLocaleString('id-ID')}`;
+  document.getElementById('discountCode').value = '';
   document.getElementById('cartModal').style.display = 'none';
   modal.style.display = 'flex';
   document.body.style.overflow = 'hidden';
   modal.dataset.productPrice = total.toString();
   modal.dataset.productBrand = 'Multiple'; // Since it's from cart
+  updateDiscountPreview();
 }
 
 // Buka Modal
 function openCheckout(name, price) {
   document.getElementById('selectedProduct').value = `${name} (${price})`;
+  document.getElementById('discountCode').value = '';
   modal.style.display = 'flex';
   document.body.style.overflow = 'hidden';
   // Simpan harga dan brand untuk perhitungan total
   modal.dataset.productPrice = price.replace('Rp ', '').replace(/\./g, '');
   const product = products.find(p => p.name === name);
   modal.dataset.productBrand = product ? product.brand : '';
+  updateDiscountPreview();
 }
 
 // Tutup Modal
@@ -1485,15 +1138,21 @@ orderForm.onsubmit = (e) => {
    if (discountCode && discountCodes[discountCode]) {
      const discountInfo = discountCodes[discountCode];
      if (discountInfo.brand === null || discountInfo.brand === productBrand) {
-       discountPercent = discountInfo.discount;
-       discountAmount = Math.round(productPrice * discountPercent);
+       if (discountInfo.isFlat) {
+         // Potongan tetap
+         discountAmount = discountInfo.discount;
+       } else {
+         // Potongan persentase
+         discountPercent = discountInfo.discount;
+         discountAmount = Math.round(productPrice * discountPercent);
+       }
      } else {
        alert('Kode diskon tidak berlaku untuk brand ini.');
        return;
      }
    }
 
-   const shippingCost = 50000; // Biaya pengiriman tetap
+   const shippingCost = 0; // Gratis ongkir
    const subtotal = productPrice - discountAmount;
    const total = subtotal + shippingCost;
 
@@ -1546,41 +1205,33 @@ orderForm.onsubmit = (e) => {
    document.body.style.overflow = 'auto';
  };
 
-// Tambah Riwayat Transaksi
-function addReceipt(data) {
-  const receiptHTML = `
-    <div class="receipt-card">
-      <h4>✅ Transaksi Berhasil!</h4>
-      <small>ID: ${data.id} | ${data.date}</small>
-      <p><b>Customer:</b> ${data.name}</p>
-      <p><b>Produk:</b> ${data.product}</p>
-      <p><b>Alamat:</b> ${data.address}</p>
-      <p><b>Pembayaran:</b> ${data.payment} (${data.account})</p>
-      <p><b>Kode Diskon:</b> ${data.discountCode}</p>
-      <p><b>Diskon:</b> ${data.discountAmount}</p>
-      <p><b>Ongkir:</b> ${data.shipping}</p>
-      <p><b>Total:</b> ${data.total}</p>
-    </div>
-  `;
-  receiptContent.innerHTML = receiptHTML;
-  receiptModal.style.display = 'flex';
-  document.body.style.overflow = 'hidden';
-
-  // Auto close after 5 seconds
-  setTimeout(() => {
-    closeReceiptModal();
-  }, 5000);
-}
-
 // Tutup receipt modal
 function closeReceiptModal() {
   receiptModal.style.display = 'none';
   document.body.style.overflow = 'auto';
 }
 
-// Simpan Riwayat Pembelian
+function addReceipt(orderData) {
+  receiptContent.innerHTML = `
+    <h2>Struk Pembelian</h2>
+    <p><strong>ID:</strong> ${orderData.id}</p>
+    <p><strong>Tanggal:</strong> ${orderData.date}</p>
+    <p><strong>Produk:</strong> ${orderData.product}</p>
+    <p><strong>Nama:</strong> ${orderData.name}</p>
+    <p><strong>Alamat:</strong> ${orderData.address}</p>
+    <p><strong>Metode Pembayaran:</strong> ${orderData.payment}</p>
+    <p><strong>Nomor Akun:</strong> ${orderData.account}</p>
+    <p><strong>Kode Diskon:</strong> ${orderData.discountCode}</p>
+    <p><strong>Potongan:</strong> ${orderData.discountAmount}</p>
+    <p><strong>Biaya Kirim:</strong> Gratis</p>
+    <p><strong>Total:</strong> ${orderData.total}</p>
+  `;
+  receiptModal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+
 function savePurchaseHistory(orderData) {
-  let history = JSON.parse(localStorage.getItem('purchaseHistory')) || [];
+  const history = JSON.parse(localStorage.getItem('purchaseHistory') || '[]');
   history.push(orderData);
   localStorage.setItem('purchaseHistory', JSON.stringify(history));
 }
